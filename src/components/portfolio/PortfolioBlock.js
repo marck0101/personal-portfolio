@@ -26,12 +26,12 @@ function PortfolioBlock(props) {
         <Box p={1} border={"2px solid black"} borderRadius={"25px"}>
           <IconLink
             link={live}
-            title={"((o)) Live Demo"}
+            title={"Live Demo"}
             icon={"fa fa-safari"}
           />
         </Box>
         <Box p={1} border={"2px solid black"} borderRadius={"25px"}>
-          <IconLink link={source} title={`</> Source Code`} icon={"fa fa-code"} />
+          <IconLink link={source} title={`Source Code`} icon={"fa fa-code"} />
           {/* <BsCodeSlash size={30} /> */}
         </Box>
       </Box>

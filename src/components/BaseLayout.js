@@ -58,7 +58,7 @@ export default function BaseLayout() {
             width={"100%"}
           >
             <p>
-              Made by <a href={"https://paytonpierce.dev"}>marck0101</a>
+              Made by <a href={"https://github.com/marck0101"}>marck0101</a>
             </p>
             <p>&copy; 2023</p>
           </Box>
