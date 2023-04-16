@@ -17,7 +17,7 @@ export const info = {
     {
       link: "https://github.com/marck0101",
       emoji: "💻",
-      text: "desenvolvedor de software autonomo",
+      text: "Desenvolvedor de software autônomo.",
       // text: "software developer autonomous",
     },
     {
@@ -29,7 +29,7 @@ export const info = {
     {
       // link: "https://user-images.githubusercontent.com/18350557/94314005-5c9f6e00-ff45-11ea-86a1-5db9e1371750.jpg",
       emoji: "🎸",
-      text: "Guitarrista da Piacullum",
+      text: "Guitarrista da Piacullum.",
       // text: "Piacullum's guitarist",
     },
   ],
