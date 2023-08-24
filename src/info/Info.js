@@ -87,10 +87,10 @@ export const info = {
       label: "Leitura",
       emoji: "📖",
     },
-    {
-      label: "Musculação",
-      emoji: "💪🏻",
-    },
+    // {
+    //   label: "Musculação",
+    //   emoji: "💪🏻",
+    // },
     {
       label: "Filmes",
       emoji: "🎥",
