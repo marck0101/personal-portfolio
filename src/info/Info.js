@@ -36,6 +36,11 @@ export const info = {
 
   socials: [
     {
+      link: "https://wa.me/5555999234969?text=Ol%C3%A1%2C+vim+atrav%C3%A9s+do+seu+portf%C3%B3lio",
+      icon: "fa fa-whatsapp",
+      label: "whatsapp",
+    },
+    {
       link: "https://www.facebook.com/www.marcosmhc/",
       icon: "fa fa-facebook",
       label: "facebook",
