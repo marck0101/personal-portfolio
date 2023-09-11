@@ -3,6 +3,8 @@ import self from "../img/selfII.png";
 import mock0 from "../img/mock0.png";
 import mock1 from "../img/mock1.png";
 import ToDoList from "../img/imgTodoList.png";
+import certificados from "../img/certificados.png";
+import curriculo from "../img/curriculo.png";
 
 export let colors = ["rgb(0,255,164)", "rgb(166,104,255)"];
 
@@ -123,11 +125,17 @@ export const info = {
       image: mock0,
     },
 
-    // {
-    //   title: "Meus certificados",
-    //   // live: "https://called-system.netlify.app",
-    //   source: "https://github.com/marck0101/certificados",
-    //   image: mock0,
-    // },
+    {
+      title: "Meus certificados",
+      // live: "https://called-system.netlify.app",
+      source: "https://github.com/marck0101/certificados",
+      image: certificados,
+    },
+    {
+      title: "Currículo",
+      // live: "https://called-system.netlify.app",
+      source: "https://drive.google.com/drive/u/1/folders/1X6YcihQI6t7ZLLi2wC7GYxfiCbysesCl",
+      image: curriculo,
+    },
   ],
 };
