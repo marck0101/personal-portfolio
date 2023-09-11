@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import self from "../img/selfII.png";
 import mock0 from "../img/mock0.png";
 import mock1 from "../img/mock1.png";
@@ -106,7 +107,7 @@ export const info = {
     {
       title: "ToDo-List Local",
       // live: "https://called-system.netlify.app",
-      source: "https://github.com/marck0101/calling-system",
+      source: "https://github.com/marck0101/test-todo-list",
       image: ToDoList,
     },
     // {
