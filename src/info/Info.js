@@ -1,6 +1,7 @@
 import self from "../img/selfII.png";
 import mock0 from "../img/mock0.png";
 import mock1 from "../img/mock1.png";
+import ToDoList from "../img/imgTodoList.png";
 
 export let colors = ["rgb(0,255,164)", "rgb(166,104,255)"];
 
@@ -103,16 +104,29 @@ export const info = {
   ],
   portfolio: [
     {
-      title: "ToDo-List",
-      live: "https://atual-lista-tarefas.netlify.app",
-      source: "https://github.com/marck0101/ToDo-List",
-      image: mock1,
+      title: "ToDo-List Local",
+      // live: "https://called-system.netlify.app",
+      source: "https://github.com/marck0101/calling-system",
+      image: ToDoList,
     },
+    // {
+    //   title: "ToDo-List",
+    //   live: "https://atual-lista-tarefas.netlify.app",
+    //   source: "https://github.com/marck0101/ToDo-List",
+    //   image: mock1,
+    // },
     {
       title: "Calling-System",
       live: "https://called-system.netlify.app",
       source: "https://github.com/marck0101/calling-system",
       image: mock0,
     },
+
+    // {
+    //   title: "Meus certificados",
+    //   // live: "https://called-system.netlify.app",
+    //   source: "https://github.com/marck0101/certificados",
+    //   image: mock0,
+    // },
   ],
 };
