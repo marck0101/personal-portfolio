@@ -6,6 +6,7 @@ import ToDoList from "../img/1-removebg-preview.png";
 import Dash from "../img/2-removebg-preview.png";
 import JbImob from "../img/4-removebg-preview.png";
 import certificados from "../img/certificados.png";
+import Portfolio from "../img/Portfolio-removebg-preview.png";
 import curriculo from "../img/curriculo.png";
 
 export let colors = ["rgb(0,255,164)", "rgb(166,104,255)"];
@@ -134,11 +135,17 @@ export const info = {
       source: "https://github.com/marck0101/certificados",
       image: certificados,
     },
-    // {
-    //   title: "Currículo",
-    //   // live: "https://called-system.netlify.app",
-    //   source: "https://drive.google.com/drive/u/1/folders/1X6YcihQI6t7ZLLi2wC7GYxfiCbysesCl",
-    //   image: curriculo,
-    // },
+    {
+      title: "Portfólio",
+      live: "https://marck0101.com.br",
+      source: "https://github.com/marck0101/personal-portfolio",
+      image: Portfolio,
+    },
+    {
+      title: "Currículo",
+      // live: "https://called-system.netlify.app",
+      source: "https://drive.google.com/drive/u/1/folders/1X6YcihQI6t7ZLLi2wC7GYxfiCbysesCl",
+      image: curriculo,
+    },
   ],
 };
