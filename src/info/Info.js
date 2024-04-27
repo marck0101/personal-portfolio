@@ -1,8 +1,10 @@
 /* eslint-disable no-unused-vars */
 import self from "../img/selfII.png";
-import mock0 from "../img/mock0.png";
+import mock0 from "../img/2-removebg-preview.png";
 import mock1 from "../img/mock1.png";
-import ToDoList from "../img/imgTodoList.png";
+import ToDoList from "../img/1-removebg-preview.png";
+import Dash from "../img/2-removebg-preview.png";
+import JbImob from "../img/4-removebg-preview.png";
 import certificados from "../img/certificados.png";
 import curriculo from "../img/curriculo.png";
 
@@ -107,22 +109,23 @@ export const info = {
   ],
   portfolio: [
     {
-      title: "ToDo-List Local",
-      // live: "https://called-system.netlify.app",
-      source: "https://github.com/marck0101/test-todo-list",
+      title: "VDR-Site cliente",
+      live: "https://vdr-site.vercel.app",
+      // source: "https://github.com/marck0101/test-todo-list",
       image: ToDoList,
     },
-    // {
-    //   title: "ToDo-List",
-    //   live: "https://atual-lista-tarefas.netlify.app",
-    //   source: "https://github.com/marck0101/ToDo-List",
-    //   image: mock1,
-    // },
     {
-      title: "Calling-System",
-      live: "https://called-system.netlify.app",
-      source: "https://github.com/marck0101/calling-system",
-      image: mock0,
+      title: "VDR-Dashboard Admin",
+      // live: "https://vdr-dashboard.vercel.app",
+      // source: "https://github.com/marck0101/certificados",
+      image: Dash,
+    },
+
+    {
+      title: "JB Imobiliária",
+      live: "https://front-jb-imobiliaria.vercel.app",
+      // source: "https://github.com/marck0101/calling-system",
+      image: JbImob,
     },
 
     {
@@ -131,11 +134,11 @@ export const info = {
       source: "https://github.com/marck0101/certificados",
       image: certificados,
     },
-    {
-      title: "Currículo",
-      // live: "https://called-system.netlify.app",
-      source: "https://drive.google.com/drive/u/1/folders/1X6YcihQI6t7ZLLi2wC7GYxfiCbysesCl",
-      image: curriculo,
-    },
+    // {
+    //   title: "Currículo",
+    //   // live: "https://called-system.netlify.app",
+    //   source: "https://drive.google.com/drive/u/1/folders/1X6YcihQI6t7ZLLi2wC7GYxfiCbysesCl",
+    //   image: curriculo,
+    // },
   ],
 };
