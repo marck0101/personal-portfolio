@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Style from "./Navbar.module.scss";
 import Toggler from "./home/Toggler";
 import { Link, useLocation } from "react-router-dom";
@@ -13,13 +13,12 @@ const links = [
   },
   {
     name: "Sobre mim",
-    // name: 'About Me',
     to: "/about",
     active: "about",
   },
   {
     name: info.initials,
-    type: "initials",
+    type: "Initials",
     to: "/",
     active: "home",
   },
@@ -30,13 +29,25 @@ const links = [
   },
 ];
 
+const LinkItem = ({ link, isActive, onClick }) => (
+  <Box
+    component={"li"}
+    className={isActive ? Style.active : ""}
+    sx={{ borderImageSource: info.gradient }}
+  >
+    <Link to={link.to} onClick={onClick} className={Style.link}>
+      {link.type === "Initials" ? <h1>{link.name}</h1> : <p>{link.name}</p>}
+    </Link>
+  </Box>
+);
+
 export default function Navbar({ darkMode, handleClick }) {
   const location = useLocation();
-  const [active, setActive] = useState(
-    location.pathname === "/"
-      ? "home"
-      : location.pathname.slice(1, location.pathname.length)
-  );
+  const [active, setActive] = useState(location.pathname);
+
+  useEffect(() => {
+    setActive(location.pathname);
+  }, [location]);
 
   return (
     <Box component={"nav"} width={"100%"}>
@@ -46,25 +57,15 @@ export default function Navbar({ darkMode, handleClick }) {
         justifyContent={"center"}
         alignItems={"center"}
         gap={{ xs: "2rem", md: "8rem" }}
-        textTransform={"lowercase"}
         fontSize={"1rem"}
       >
         {links.map((link, index) => (
-          <Box
+          <LinkItem
             key={index}
-            component={"li"}
-            className={link.active === active && !link.type && Style.active}
-            sx={{ borderImageSource: info.gradient }}
-          >
-            <Link
-              to={link.to}
-              onClick={() => setActive(link.active)}
-              className={Style.link}
-            >
-              {!link.type && <p style={{ padding: "0.5rem 0" }}>{link.name}</p>}
-              {link.type && <h1>{link.name}</h1>}
-            </Link>
-          </Box>
+            link={link}
+            isActive={link.active === active.slice(1)}
+            onClick={() => setActive(link.active)}
+          />
         ))}
         <li>
           <Toggler darkMode={darkMode} handleClick={handleClick} />
