@@ -95,6 +95,7 @@ export const info = {
     {
       label: "Musicas",
       // label: "musics",
+      // link:'https://open.spotify.com/playlist/3dn8NwizdGBWWIMyqym34j?si=2285ee63bfc446db',
       emoji: "🎸",
     },
     {

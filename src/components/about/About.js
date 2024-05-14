@@ -1,11 +1,11 @@
-import React from "react";
-import Style from "./About.module.scss";
-import Terminal from "./Terminal";
-import { Box } from "@mui/material";
-import { info } from "../../info/Info";
+import React from 'react'
+import Style from './About.module.scss'
+import Terminal from './Terminal'
+import { Box } from '@mui/material'
+import { info } from '../../info/Info'
 
 export default function About() {
-  const firstName = info.firstName.toLowerCase();
+  const firstName = info.firstName.toLowerCase()
 
   function aboutMeText() {
     return (
@@ -14,7 +14,7 @@ export default function About() {
           <span className={Style.pink} /*style={{ color: info.baseColor }}*/>
             {firstName}
             {info.lastName.toLowerCase()} $
-          </span>{" "}
+          </span>{' '}
           cat about{firstName}
         </p>
         <p>
@@ -24,7 +24,7 @@ export default function About() {
           {info.bio}
         </p>
       </>
-    );
+    )
   }
 
   function skillsText() {
@@ -34,13 +34,13 @@ export default function About() {
           <span style={{ color: info.baseColor }}>
             {firstName}
             {info.lastName.toLowerCase()} $
-          </span>{" "}
+          </span>{' '}
           cd skills/tools
         </p>
         <p>
           <span style={{ color: info.baseColor }}>
             skills/tools <span className={Style.green}>(main)</span> $
-          </span>{" "}
+          </span>{' '}
           ls
         </p>
         <p style={{ color: info.baseColor }}> Knowledge In</p>
@@ -56,7 +56,7 @@ export default function About() {
           ))}
         </ul>
       </>
-    );
+    )
   }
 
   function miscText() {
@@ -66,39 +66,45 @@ export default function About() {
           <span style={{ color: info.baseColor }}>
             {firstName}
             {info.lastName.toLowerCase()} $
-          </span>{" "}
+          </span>{' '}
           cd hobbies/interests
         </p>
         <p>
           <span style={{ color: info.baseColor }}>
             hobbies/interests <span className={Style.green}>(main)</span> $
-          </span>{" "}
+          </span>{' '}
           ls
         </p>
         <ul>
           {info.hobbies.map((hobby, index) => (
             <li key={index}>
-              <Box component={"span"} mr={"1rem"}>
+              <Box component={'span'} mr={'1rem'}>
                 {hobby.emoji}
               </Box>
-              {hobby.label}
+              {hobby.link ? (
+                <a href={hobby.link} target="_blank" rel="noreferrer">
+                  {hobby.label}
+                </a>
+              ) : (
+                <>{hobby.label}</>
+              )}
             </li>
           ))}
         </ul>
       </>
-    );
+    )
   }
 
   return (
     <Box
-      display={"flex"}
-      flexDirection={"column"}
-      alignItems={"center"}
-      mt={"3rem"}
+      display={'flex'}
+      flexDirection={'column'}
+      alignItems={'center'}
+      mt={'3rem'}
     >
       <Terminal text={aboutMeText()} />
       <Terminal text={skillsText()} />
       <Terminal text={miscText()} />
     </Box>
-  );
+  )
 }
