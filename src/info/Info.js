@@ -1,9 +1,12 @@
 /* eslint-disable no-unused-vars */
 import self from "../img/selfII.png";
-import mock0 from "../img/mock0.png";
+import mock0 from "../img/2-removebg-preview.png";
 import mock1 from "../img/mock1.png";
-import ToDoList from "../img/imgTodoList.png";
+import ToDoList from "../img/1-removebg-preview.png";
+import Dash from "../img/2-removebg-preview.png";
+import JbImob from "../img/4-removebg-preview.png";
 import certificados from "../img/certificados.png";
+import Portfolio from "../img/Portfolio-removebg-preview.png";
 import curriculo from "../img/curriculo.png";
 
 export let colors = ["rgb(0,255,164)", "rgb(166,104,255)"];
@@ -83,8 +86,10 @@ export const info = {
       "npm",
       "API Requests",
       "JSON",
+      "Next",
+      "Tailwind",
     ],
-    exposedTo: ["Nodejs", "Java", "Express", "Firebase", "AWS", "Figma"],
+    exposedTo: ["Nodejs", "Java", "Express", "Firebase", "Figma"],
   },
   hobbies: [
     {
@@ -107,22 +112,23 @@ export const info = {
   ],
   portfolio: [
     {
-      title: "ToDo-List Local",
-      // live: "https://called-system.netlify.app",
-      source: "https://github.com/marck0101/test-todo-list",
+      title: "VDR-Site cliente",
+      live: "https://vdr-site.vercel.app",
+      // source: "https://github.com/marck0101/test-todo-list",
       image: ToDoList,
     },
-    // {
-    //   title: "ToDo-List",
-    //   live: "https://atual-lista-tarefas.netlify.app",
-    //   source: "https://github.com/marck0101/ToDo-List",
-    //   image: mock1,
-    // },
     {
-      title: "Calling-System",
-      live: "https://called-system.netlify.app",
-      source: "https://github.com/marck0101/calling-system",
-      image: mock0,
+      title: "VDR-Dashboard Admin",
+      // live: "https://vdr-dashboard.vercel.app",
+      // source: "https://github.com/marck0101/certificados",
+      image: Dash,
+    },
+
+    {
+      title: "JB Imobiliária",
+      live: "https://front-jb-imobiliaria.vercel.app",
+      // source: "https://github.com/marck0101/calling-system",
+      image: JbImob,
     },
 
     {
@@ -130,6 +136,12 @@ export const info = {
       // live: "https://called-system.netlify.app",
       source: "https://github.com/marck0101/certificados",
       image: certificados,
+    },
+    {
+      title: "Portfólio",
+      live: "https://marck0101.com.br",
+      source: "https://github.com/marck0101/personal-portfolio",
+      image: Portfolio,
     },
     {
       title: "Currículo",
