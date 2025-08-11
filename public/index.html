@@ -8,6 +8,33 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       media="screen"
     />
+    <!-- no <head> -->
+    <link
+      rel="preload"
+      as="image"
+      href="/img/hero@1x.avif"
+      imagesrcset="/img/hero@1x.avif 1x, /img/hero@2x.avif 2x"
+      imagesizes="(max-width: 600px) 90vw, 600px"
+    />
+    <!-- no hero -->
+    <picture>
+      <source
+        srcset="/img/hero@1x.avif 1x, /img/hero@2x.avif 2x"
+        type="image/avif"
+      />
+      <source
+        srcset="/img/hero@1x.webp 1x, /img/hero@2x.webp 2x"
+        type="image/webp"
+      />
+      <img
+        src="/img/hero@1x.jpg"
+        alt="Marcos"
+        width="300"
+        height="300"
+        decoding="async"
+        fetchpriority="high"
+      />
+    </picture>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
 
