@@ -1,43 +1,11 @@
+<!-- index.html (para copiar e colar) -->
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="./logo.png" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-      media="screen"
-    />
-    <!-- no <head> -->
-    <link
-      rel="preload"
-      as="image"
-      href="/img/hero@1x.avif"
-      imagesrcset="/img/hero@1x.avif 1x, /img/hero@2x.avif 2x"
-      imagesizes="(max-width: 600px) 90vw, 600px"
-    />
-    <!-- no hero -->
-    <picture>
-      <source
-        srcset="/img/hero@1x.avif 1x, /img/hero@2x.avif 2x"
-        type="image/avif"
-      />
-      <source
-        srcset="/img/hero@1x.webp 1x, /img/hero@2x.webp 2x"
-        type="image/webp"
-      />
-      <img
-        src="/img/hero@1x.jpg"
-        alt="Marcos"
-        width="300"
-        height="300"
-        decoding="async"
-        fetchpriority="high"
-      />
-    </picture>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-
+    <link rel="icon" href="./logo.png" />
     <base href="/" />
     <meta name="description" content="developer portfolio" />
     <meta
@@ -46,7 +14,33 @@
     />
     <link rel="logo" href="./logo.png" />
 
-    <!-- Consent Mode (v2) + dataLayer stub (sem gtag.js) -->
+    <!-- Font Awesome (não bloqueante). Ideal: trocar por SVGs locais quando possível. -->
+    <link
+      rel="preload"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      as="style"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    /></noscript>
+
+    <!-- PRELOAD do LCP (troque os caminhos abaixo pelos ARQUIVOS REAIS do seu hero em produção) -->
+    <!-- EXEMPLO: se sua imagem estiver em /assets/hero.webp, aponte para /assets/hero.webp -->
+    <link rel="preload" as="image" href="/img/hero@1x.avif"
+    <!-- REPLACE: caminho real -->
+    imagesrcset="/img/hero@1x.avif 1x, /img/hero@2x.avif 2x"
+    <!-- REPLACE: caminhos reais -->
+    imagesizes="(max-width: 600px) 90vw, 600px">
+
+    <!-- Consent Mode (v2) + dataLayer stub (sem gtag.js externo) -->
     <script>
       window.dataLayer = window.dataLayer || []
       function gtag() {
@@ -65,33 +59,28 @@
     <title>Marck0101 | Developer</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>Ative o JavaScript para executar este app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <!-- IMPORTANTE: o <picture> do hero NÃO fica no <head>. Renderize-o no seu componente React acima da dobra. -->
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-
-    <!-- Vendors: GTM, FB Pixel, Clarity - carregamento adiado -->
+    <!-- Vendors: GTM, FB Pixel, Clarity - carregamento adiado + guarda de produção -->
     <script>
       ;(function () {
+        // Liste aqui todos os domínios de produção do seu site
+        var PROD_HOSTS = ['marck0101.com.br', 'www.marck0101.com.br']
+        var IS_PROD = PROD_HOSTS.indexOf(location.hostname) > -1
+
         var GTM_ID = 'GTM-KSZJXTHM'
         var FB_ID = '1042435387262327'
         var CLARITY_ID = 'lyju0gbkv7'
 
         function onIdle(fn) {
           if ('requestIdleCallback' in window) {
-            requestIdleCallback(fn, { timeout: 4000 })
-          } else setTimeout(fn, 3000)
+            requestIdleCallback(fn, { timeout: 6000 })
+          } else setTimeout(fn, 5000)
         }
 
-        // GTM: injeta apenas quando chamado (sem gtag.js externo)
+        // GTM (sem gtag.js externo; GTM centraliza GA e demais tags)
         function loadGTM() {
           if (window._gtmLoaded) return
           window._gtmLoaded = true
@@ -107,7 +96,7 @@
           })(window, document, 'script', 'dataLayer', GTM_ID)
         }
 
-        // FB Pixel: stub agora, biblioteca depois
+        // Facebook Pixel
         ;(function (f) {
           if (f.fbq) return
           var n = (f.fbq = function () {
@@ -132,7 +121,7 @@
           fbq('track', 'PageView')
         }
 
-        // Clarity: injeta depois
+        // Microsoft Clarity
         function loadClarity() {
           if (window._clarityLoaded) return
           window._clarityLoaded = true
@@ -151,12 +140,12 @@
         }
 
         function enableVendors() {
+          if (!IS_PROD) return
           loadGTM()
           loadFB()
           loadClarity()
         }
 
-        // Dispara após load+idle OU na 1ª interação (o que vier primeiro)
         var fired = false
         function fire() {
           if (fired) return
@@ -164,16 +153,18 @@
           enableVendors()
         }
 
-        window.addEventListener(
-          'load',
-          function () {
-            onIdle(fire)
-          },
-          { once: true }
-        )
-        ;['click', 'keydown', 'touchstart', 'scroll'].forEach(function (evt) {
-          window.addEventListener(evt, fire, { once: true, passive: true })
-        })
+        if (IS_PROD) {
+          window.addEventListener(
+            'load',
+            function () {
+              onIdle(fire)
+            },
+            { once: true }
+          )
+          ;['click', 'keydown', 'touchstart', 'scroll'].forEach(function (evt) {
+            window.addEventListener(evt, fire, { once: true, passive: true })
+          })
+        }
       })()
     </script>
 
@@ -184,6 +175,7 @@
         width="1"
         style="display: none"
         src="https://www.facebook.com/tr?id=1042435387262327&ev=PageView&noscript=1"
+        alt=""
     /></noscript>
   </body>
 </html>
