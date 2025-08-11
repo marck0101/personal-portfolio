@@ -47,16 +47,16 @@ export const info = {
       icon: "fa fa-whatsapp",
       label: "whatsapp",
     },
-    {
-      link: "https://www.facebook.com/www.marcosmhc/",
-      icon: "fa fa-facebook",
-      label: "facebook",
-    },
-    {
-      link: "https://instagram.com/marcos_mhc/",
-      icon: "fa fa-instagram",
-      label: "instagram",
-    },
+    // {
+    //   link: "https://www.facebook.com/www.marcosmhc/",
+    //   icon: "fa fa-facebook",
+    //   label: "facebook",
+    // },
+    // {
+    //   link: "https://instagram.com/marcos_mhc/",
+    //   icon: "fa fa-instagram",
+    //   label: "instagram",
+    // },
     {
       link: "https://github.com/marck0101",
       icon: "fa fa-github",
