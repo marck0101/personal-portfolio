@@ -1,4 +1,4 @@
-<!-- index.html (para copiar e colar) -->
+<!-- index.html (variante com caminho estável do hero em /public/img) -->
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -32,22 +32,22 @@
         href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     /></noscript>
 
-    <!-- PRELOAD do LCP (troque os caminhos abaixo pelos ARQUIVOS REAIS do seu hero em produção) -->
-    <!-- EXEMPLO: se sua imagem estiver em /assets/hero.webp, aponte para /assets/hero.webp -->
-
+    <!-- PRELOAD do LCP para imagem estável -->
     <link
       rel="preload"
       as="image"
-      href="/static/media/self5A.4735e81e7b134d654327.webp"
-      type="image/webp"
+      href="/img/hero@1x.avif"
+      imagesrcset="/img/hero@1x.avif 1x, /img/hero@2x.avif 2x"
+      imagesizes="(max-width: 600px) 90vw, 600px"
+      type="image/avif"
     />
-    <!-- Consent Mode (v2) + dataLayer stub (sem gtag.js externo) -->
+
+    <!-- Consent Mode (v2) + dataLayer stub -->
     <script>
       window.dataLayer = window.dataLayer || []
       function gtag() {
         dataLayer.push(arguments)
       }
-      // Padrões antes do consentimento
       gtag('consent', 'default', {
         ad_user_data: 'denied',
         ad_personalization: 'denied',
@@ -62,32 +62,9 @@
   <body>
     <noscript>Ative o JavaScript para executar este app.</noscript>
     <div id="root"></div>
-    <!-- IMPORTANTE: o <picture> do hero NÃO fica no <head>. Renderize-o no seu componente React acima da dobra. -->
-    <picture>
-      <source
-        srcset="/img/hero@1x.avif 1x, /img/hero@2x.avif 2x"
-        type="image/avif"
-      />
-      <source
-        srcset="
-          /static/media/self5A.4735e81e7b134d654327.webp 1x,
-          /static/media/self5A.4735e81e7b134d654327.webp 2x
-        "
-        type="image/webp"
-      />
-      <img
-        src="/static/media/self5A.4735e81e7b134d654327.webp"
-        alt="Marcos"
-        width="300"
-        height="300"
-        decoding="async"
-        fetchPriority="high"
-      />
-    </picture>
-    <!-- Vendors: GTM, FB Pixel, Clarity - carregamento adiado + guarda de produção -->
+
     <script>
       ;(function () {
-        // Liste aqui todos os domínios de produção do seu site
         var PROD_HOSTS = ['marck0101.com.br', 'www.marck0101.com.br']
         var IS_PROD = PROD_HOSTS.indexOf(location.hostname) > -1
 
@@ -95,13 +72,6 @@
         var FB_ID = '1042435387262327'
         var CLARITY_ID = 'lyju0gbkv7'
 
-        function onIdle(fn) {
-          if ('requestIdleCallback' in window) {
-            requestIdleCallback(fn, { timeout: 6000 })
-          } else setTimeout(fn, 5000)
-        }
-
-        // GTM (sem gtag.js externo; GTM centraliza GA e demais tags)
         function loadGTM() {
           if (window._gtmLoaded) return
           window._gtmLoaded = true
@@ -117,7 +87,6 @@
           })(window, document, 'script', 'dataLayer', GTM_ID)
         }
 
-        // Facebook Pixel
         ;(function (f) {
           if (f.fbq) return
           var n = (f.fbq = function () {
@@ -142,7 +111,6 @@
           fbq('track', 'PageView')
         }
 
-        // Microsoft Clarity
         function loadClarity() {
           if (window._clarityLoaded) return
           window._clarityLoaded = true
@@ -175,29 +143,24 @@
         }
 
         if (IS_PROD) {
-          window.addEventListener(
-            'load',
-            function () {
-              onIdle(fire)
-            },
-            { once: true }
-          )
           ;['click', 'keydown', 'touchstart', 'scroll'].forEach(function (evt) {
             window.addEventListener(evt, fire, { once: true, passive: true })
           })
+          setTimeout(function () {
+            if (!fired && document.visibilityState === 'hidden') fire()
+          }, 10000)
         }
       })()
     </script>
 
-    <!-- Noscript do Pixel (opcional) -->
-    <!-- <noscript
-      ><img
-        src="/static/media/self5A.4735e81e7b134d654327.webp"
-        alt="Marcos"
-        width="300"
-        height="300"
-        decoding="async"
-        fetchpriority="high"
-    /></noscript> -->
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=1042435387262327&ev=PageView&noscript=1"
+        alt=""
+      />
+    </noscript>
   </body>
 </html>
