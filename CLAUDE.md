@@ -260,10 +260,18 @@ img-port.png, img-port-light.png
 | Campo | Valor |
 |---|---|
 | URL de produção | https://marck0101.com.br |
-| Hosting | Vercel (inferido pelo `_redirects` e domínio) |
-| Domínios aceitos | `marck0101.com.br`, `www.marck0101.com.br` |
+| Hosting | Netlify |
+| Repositório | git@github.com:marck0101/personal-portfolio.git |
+| Branch de deploy | `main` |
+| Build command | `npm run build` |
+| Publish directory | `build` |
+| Deploy trigger | Push automático via SSH — `git push origin main` |
+| Tempo de deploy | ~1-2 minutos após o push |
 | Analytics | GTM (`GTM-KSZJXTHM`) + Clarity (`lyju0gbkv7`) + Meta Pixel (`1042435387262327`) — apenas em produção, após consentimento |
 | Sitemap | https://marck0101.com.br/sitemap.xml |
+
+**Workflow de deploy:**
+Claude Code edita → `git add` + `git commit` + `git push origin main` → Netlify deploya automaticamente.
 
 ---
 
