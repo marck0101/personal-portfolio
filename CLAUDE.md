@@ -172,7 +172,7 @@ info = {
 |---|---|---|---|---|---|
 | 1 | Tais L. Müller Arquiteta | https://taismuller-arquiteta.netlify.app | — | ✅ `taismuller-arquiteta.png` | React, Netlify, GTM |
 | 2 | Dashboard de Marketing Integrado | — | — | ✅ `sistema-dash-gh.png` | React, Node.js, PostgreSQL |
-| 3 | Sistema de Chamados | https://called-system.netlify.app | — | ⏳ placeholder | React, Firebase, Netlify |
+| 3 | Blog — Marcos Henrique | https://blog.marck0101.com.br | — | ✅ `blog-marcos.png` | Blog pessoal |
 | 4 | Site Institucional + Blog — Veterinária Tamires | https://veterinariatamires.lovestoblog.com | — | ✅ `veterinaria-tamires.png` | PHP, MySQL, WordPress |
 | 5 | Next Movies | https://filmes-lancamentos-atualizados.netlify.app | — | ⏳ placeholder | React, API REST, Netlify |
 | 6 | Lista de Tarefas com Autenticação | https://atual-lista-tarefas.netlify.app | — | ✅ `ToDoList.png` (temporária) | React, Firebase, Firestore |

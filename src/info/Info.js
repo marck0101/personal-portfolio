@@ -1,6 +1,7 @@
 import { FaWhatsapp, FaGithub, FaLinkedin } from 'react-icons/fa'
 import TaisImg     from '../img/taismuller-arquiteta.png'
 import DashImg     from '../img/sistema-dash-gh.png'
+import BlogImg     from '../img/blog-marcos.png'
 import VetImg      from '../img/veterinaria-tamires.png'
 import ToDoListImg from '../img/ToDoList.png'
 
@@ -105,10 +106,10 @@ export const info = {
       image: DashImg,
     },
     {
-      title: 'Sistema de Chamados',
-      description: 'Plataforma de abertura e acompanhamento de chamados com autenticação Firebase, controle de sessão e CRUD completo.',
-      live: 'https://called-system.netlify.app',
-      image: null,
+      title: 'Blog — Marcos Henrique',
+      description: 'Blog pessoal com conteúdo sobre desenvolvimento, marketing digital e gestão de tráfego pago.',
+      live: 'https://blog.marck0101.com.br',
+      image: BlogImg,
     },
     {
       title: 'Site Institucional + Blog — Veterinária Tamires',
