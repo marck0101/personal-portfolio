@@ -6,9 +6,16 @@ import EmojiBullet from "./EmojiBullet";
 import SocialIcon from "./SocialIcon";
 import { Box } from "@mui/material";
 import { info } from "../../info/Info";
+import { Helmet } from "react-helmet-async";
 
 export default function Home() {
   return (
+    <>
+      <Helmet>
+        <title>Marcos Corrêa | Desenvolvedor Full Stack — Santo Cristo, RS</title>
+        <meta name="description" content="Desenvolvedor Full Stack e Gestor de Mídia Paga em Santo Cristo, RS. Especialista em React, Node.js e marketing digital. Veja meu portfólio." />
+        <link rel="canonical" href="https://marck0101.com.br" />
+      </Helmet>
     <Box
       component={"main"}
       display={"flex"}
@@ -69,5 +76,6 @@ export default function Home() {
         </Box>
       </Box>
     </Box>
+    </>
   );
 }

@@ -1,46 +1,108 @@
 <!-- index.html (variante com caminho estável do hero em /public/img) -->
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#8d53ff" />
     <link rel="icon" href="./logo.png" />
     <base href="/" />
-    <meta name="description" content="developer portfolio" />
-    <meta
-      name="keyword"
-      content="portfolio, javascript, developer, frontend, react, dev, front-end, tech, programmer"
-    />
-    <link rel="logo" href="./logo.png" />
 
-    <!-- Font Awesome (não bloqueante). Ideal: trocar por SVGs locais quando possível. -->
-    <link
-      rel="preload"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-      as="style"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript
-      ><link
-        rel="stylesheet"
-        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    /></noscript>
+    <!-- SEO primário -->
+    <title>Marcos Corrêa | Desenvolvedor Full Stack — Santo Cristo, RS</title>
+    <meta name="description" content="Desenvolvedor Full Stack e Gestor de Mídia Paga em Santo Cristo, RS. Especialista em React, Node.js e marketing digital. Veja meu portfólio." />
+    <meta name="author" content="Marcos Henrique Corrêa" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://marck0101.com.br" />
 
-    <!-- PRELOAD do LCP para imagem estável -->
-    <link
-      rel="preload"
-      as="image"
-      href="/img/hero@1x.avif"
-      imagesrcset="/img/hero@1x.avif 1x, /img/hero@2x.avif 2x"
-      imagesizes="(max-width: 600px) 90vw, 600px"
-      type="image/avif"
-    />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://marck0101.com.br" />
+    <meta property="og:title" content="Marcos Corrêa | Desenvolvedor Full Stack" />
+    <meta property="og:description" content="Desenvolvedor Full Stack e Gestor de Mídia Paga em Santo Cristo, RS. Especialista em React, Node.js e marketing digital." />
+    <meta property="og:image" content="https://marck0101.com.br/logo.png" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Marcos Corrêa | Portfólio" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Marcos Corrêa | Desenvolvedor Full Stack" />
+    <meta name="twitter:description" content="Desenvolvedor Full Stack e Gestor de Mídia Paga em Santo Cristo, RS. Especialista em React, Node.js e marketing digital." />
+    <meta name="twitter:image" content="https://marck0101.com.br/logo.png" />
+
+    <!-- Dados estruturados JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "name": "Marcos Henrique Corrêa",
+          "jobTitle": "Desenvolvedor Full Stack & Gestor de Mídia Paga",
+          "url": "https://marck0101.com.br",
+          "email": "marck.mhc@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Santo Cristo",
+            "addressRegion": "RS",
+            "addressCountry": "BR"
+          },
+          "sameAs": [
+            "https://github.com/marck0101",
+            "https://www.linkedin.com/in/marcos-henrique-corr%C3%AAa-618392209/"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "name": "Marcos Corrêa | Portfólio",
+          "url": "https://marck0101.com.br"
+        },
+        {
+          "@type": "ItemList",
+          "name": "Projetos do Portfólio",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "JB Imobiliária",
+              "url": "https://front-jb-imobiliaria.vercel.app"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Portfólio Pessoal",
+              "url": "https://marck0101.com.br"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "VDR-Site",
+              "url": "https://vdr-site.vercel.app"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "name": "VDR-Dashboard Admin",
+              "url": "https://marck0101.com.br/portfolio"
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "name": "Meus Certificados",
+              "url": "https://github.com/marck0101/certificados"
+            },
+            {
+              "@type": "ListItem",
+              "position": 6,
+              "name": "Currículo",
+              "url": "https://marck0101.com.br/portfolio"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
 
     <!-- Consent Mode (v2) + dataLayer stub -->
     <script>
@@ -57,7 +119,6 @@
       })
     </script>
 
-    <title>Marck0101 | Developer</title>
   </head>
   <body>
     <noscript>Ative o JavaScript para executar este app.</noscript>
@@ -128,11 +189,31 @@
           })(window, document, 'clarity', 'script', CLARITY_ID)
         }
 
-        function enableVendors() {
+        function enableAnalyticsVendors() {
           if (!IS_PROD) return
-          loadGTM()
           loadFB()
           loadClarity()
+          if (typeof gtag === 'function') {
+            gtag('consent', 'update', {
+              ad_storage: 'granted',
+              ad_user_data: 'granted',
+              ad_personalization: 'granted',
+              analytics_storage: 'granted',
+            })
+          }
+        }
+
+        // Exposto para o CookieBanner React chamar após consentimento
+        window.enableAnalytics = enableAnalyticsVendors
+
+        function enableVendors() {
+          if (!IS_PROD) return
+          // GTM sempre sobe — Consent Mode v2 garante que nada rastreia sem consentimento
+          loadGTM()
+          // Clarity e Pixel só sobem se usuário já aceitou
+          if (localStorage.getItem('cookieConsent') === 'all') {
+            enableAnalyticsVendors()
+          }
         }
 
         var fired = false

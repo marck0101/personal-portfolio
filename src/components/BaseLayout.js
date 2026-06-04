@@ -1,10 +1,11 @@
-/* eslint-disable no-eval */
 import React, { useEffect, useState } from "react";
 import Style from "./BaseLayout.module.scss";
 import Navbar from "./Navbar";
 import Home from "./home/Home";
 import About from "./about/About";
 import Portfolio from "./portfolio/Portfolio";
+import CookieBanner from "./cookies/CookieBanner";
+import PrivacyPolicy from "./privacy/PrivacyPolicy";
 import { Route, Routes } from "react-router-dom";
 import { Box, Grid } from "@mui/material";
 
@@ -13,13 +14,12 @@ export default function BaseLayout() {
 
   function handleToggleDarkMode() {
     let oppositeOfCurrentDarkMode = !darkMode;
-    console.log(oppositeOfCurrentDarkMode);
     localStorage.setItem("darkMode", `${oppositeOfCurrentDarkMode}`);
     setDarkMode(oppositeOfCurrentDarkMode);
   }
 
   useEffect(() => {
-    let detectedDarkMode = eval(localStorage.getItem("darkMode"));
+    let detectedDarkMode = localStorage.getItem("darkMode") === "true";
 
     if (detectedDarkMode) {
       setDarkMode(detectedDarkMode);
@@ -60,10 +60,12 @@ export default function BaseLayout() {
             <p>
               Made by <a href={"https://github.com/marck0101"}>marck0101</a>
             </p>
-            <p>&copy; 2023</p>
+            <p>&copy; {new Date().getFullYear()}</p>
           </Box>
         </Grid>
       </Grid>
+      <CookieBanner />
+      <PrivacyPolicy />
     </Box>
   );
 }

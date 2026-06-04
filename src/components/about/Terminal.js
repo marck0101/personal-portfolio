@@ -2,8 +2,7 @@ import React from "react";
 import Style from "./Terminal.module.scss";
 import classNames from "classnames";
 import { Box } from "@mui/material";
-
-const iconClass = "fa fa-circle";
+import { FaCircle } from "react-icons/fa";
 
 function Terminal(props) {
   const { text } = props;
@@ -22,9 +21,9 @@ function Terminal(props) {
         borderRadius={"0.5rem 0.5rem 0 0"}
         fontSize={"1rem"}
       >
-        <i className={classNames(iconClass, Style.red)} />
-        <i className={classNames(iconClass, Style.amber)} />
-        <i className={classNames(iconClass, Style.green)} />
+        <FaCircle color={"#ff6057"} style={{ marginLeft: "0.5rem" }} />
+        <FaCircle color={"#ffbd2e"} style={{ marginLeft: "0.5rem" }} />
+        <FaCircle color={"#27c93f"} style={{ marginLeft: "0.5rem" }} />
       </Box>
       <Box
         py={{ xs: "1rem", md: "2rem" }}

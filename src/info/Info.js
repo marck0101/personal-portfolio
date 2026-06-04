@@ -1,13 +1,8 @@
-/* eslint-disable no-unused-vars */
-import self from '../img/selfII.png'
-import mock0 from '../img/2-removebg-preview.png'
-import mock1 from '../img/mock1.png'
-import ToDoList from '../img/1-removebg-preview.png'
-import Dash from '../img/2-removebg-preview.png'
-import JbImob from '../img/4-removebg-preview.png'
-import certificados from '../img/certificados.png'
-import Portfolio from '../img/Portfolio-removebg-preview.png'
-import curriculo from '../img/curriculo.png'
+import { FaWhatsapp, FaGithub, FaLinkedin } from 'react-icons/fa'
+import TaisImg     from '../img/taismuller-arquiteta.png'
+import DashImg     from '../img/sistema-dash-gh.png'
+import VetImg      from '../img/veterinaria-tamires.png'
+import ToDoListImg from '../img/ToDoList.png'
 
 export let colors = ['rgb(0,255,164)', 'rgb(166,104,255)']
 
@@ -15,9 +10,7 @@ export const info = {
   firstName: ' Marcos',
   lastName: 'Henrique',
   initials: 'Js',
-  position: 'um desenvolvedor Full Stack',
-  // position: "a Full Stack Developer",
-  selfPortrait: self,
+  position: 'Desenvolvedor Full Stack & Gestor de Mídia Paga',
   gradient: `-webkit-linear-gradient(135deg, ${colors})`,
   baseColor: colors[0],
   miniBio: [
@@ -44,33 +37,21 @@ export const info = {
   socials: [
     {
       link: 'https://wa.me/5555999234969?text=Ol%C3%A1%2C+vim+atrav%C3%A9s+do+seu+portf%C3%B3lio',
-      icon: 'fa fa-whatsapp',
+      icon: <FaWhatsapp />,
       label: 'whatsapp',
     },
-    // {
-    //   link: "https://www.facebook.com/www.marcosmhc/",
-    //   icon: "fa fa-facebook",
-    //   label: "facebook",
-    // },
-    // {
-    //   link: "https://instagram.com/marcos_mhc/",
-    //   icon: "fa fa-instagram",
-    //   label: "instagram",
-    // },
     {
       link: 'https://github.com/marck0101',
-      icon: 'fa fa-github',
+      icon: <FaGithub />,
       label: 'Github',
     },
     {
       link: 'https://www.linkedin.com/in/marcos-henrique-corrêa-618392209/',
-      icon: 'fa fa-linkedin',
+      icon: <FaLinkedin />,
       label: 'LinkedIn',
     },
   ],
-  bio: `Olá! Eu sou Marcos, um desenvolvedor Full Stack de Santo Cristo RS. Adoro criar web aplicativos com React, e atualmente estou estudando NodeJS.`,
-  // bio: `Hello! I'm Marcos, a front-end developer from Santo Cristo RS. I love creating web
-  // applications with React, and I'm currently studying NodeJS.`,
+  bio: `Olá! Eu sou Marcos, desenvolvedor Full Stack e Gestor de Mídia Paga de Santo Cristo, RS. Trabalho com React, Node.js e estratégias digitais, transformando ideias em produtos web reais e campanhas que convertem.`,
   skills: {
     proficientWith: [
       'JavaScript',
@@ -113,43 +94,39 @@ export const info = {
   ],
   portfolio: [
     {
-      title: 'VDR-Site cliente',
-      live: 'https://vdr-site.vercel.app',
-      // source: "https://github.com/marck0101/test-todo-list",
-      image: ToDoList,
+      title: 'Tais L. Müller Arquiteta',
+      description: 'Site para escritório de arquitetura com foco em neuroarquitetura. Portfólio de obras, etapas do processo e formulário de contato. GTM implementado.',
+      live: 'https://taismuller-arquiteta.netlify.app',
+      image: TaisImg,
     },
     {
-      title: 'VDR-Dashboard Admin',
-      // live: "https://vdr-dashboard.vercel.app",
-      // source: "https://github.com/marck0101/certificados",
-      image: Dash,
-    },
-
-    {
-      title: 'JB Imobiliária',
-      live: 'https://front-jb-imobiliaria.vercel.app',
-      // source: "https://github.com/marck0101/calling-system",
-      image: JbImob,
-    },
-
-    {
-      title: 'Meus certificados',
-      // live: "https://called-system.netlify.app",
-      source: 'https://github.com/marck0101/certificados',
-      image: certificados,
+      title: 'Dashboard de Marketing Integrado',
+      description: 'Painel custom conectando APIs do Meta Ads, Google Ads e LinkedIn. Eliminou ferramentas pagas de BI. Construído com React e PostgreSQL.',
+      image: DashImg,
     },
     {
-      title: 'Portfólio',
-      live: 'https://marck0101.com.br',
-      source: 'https://github.com/marck0101/personal-portfolio',
-      image: Portfolio,
+      title: 'Sistema de Chamados',
+      description: 'Plataforma de abertura e acompanhamento de chamados com autenticação Firebase, controle de sessão e CRUD completo.',
+      live: 'https://called-system.netlify.app',
+      image: null,
     },
     {
-      title: 'Currículo',
-      // live: "https://called-system.netlify.app",
-      source:
-        'https://drive.google.com/drive/u/1/folders/1X6YcihQI6t7ZLLi2wC7GYxfiCbysesCl',
-      image: curriculo,
+      title: 'Site Institucional + Blog — Veterinária Tamires',
+      description: 'Site e blog para médica veterinária com foco em conteúdo educativo e autoridade. PHP, MySQL e hospedagem InfinityFree.',
+      live: 'https://veterinariatamires.lovestoblog.com',
+      image: VetImg,
+    },
+    {
+      title: 'Next Movies',
+      description: 'Listagem de filmes em cartaz com consumo de API REST externa e hooks avançados do React em produção.',
+      live: 'https://filmes-lancamentos-atualizados.netlify.app',
+      image: null,
+    },
+    {
+      title: 'Lista de Tarefas com Autenticação',
+      description: 'Gerenciador de tarefas com login/logout e persistência via Firebase Firestore. Dados isolados por usuário.',
+      live: 'https://atual-lista-tarefas.netlify.app',
+      image: ToDoListImg,
     },
   ],
 }

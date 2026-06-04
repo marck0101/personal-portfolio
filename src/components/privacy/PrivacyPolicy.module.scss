@@ -1,0 +1,112 @@
+@import "../../variables.modules";
+
+.modal {
+  border: none;
+  border-radius: 12px;
+  padding: 0;
+  width: 90vw;
+  max-width: 680px;
+  max-height: 85vh;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 85vh;
+  background-color: $white;
+  color: $dark;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid $lightgray;
+  flex-shrink: 0;
+
+  h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: $purple;
+  }
+}
+
+.body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+  font-size: 0.9rem;
+  line-height: 1.7;
+
+  h3 {
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: $purple;
+  }
+
+  ul {
+    padding-left: 1.25rem;
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  a {
+    color: $purple;
+    text-decoration: underline;
+
+    &:hover {
+      color: $pink;
+    }
+  }
+}
+
+.footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid $lightgray;
+  display: flex;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: $dark;
+  padding: 0.25rem 0.5rem;
+  transition: $transition;
+
+  &:hover {
+    color: $purple;
+  }
+}
+
+.closeBtn2 {
+  padding: 0.5rem 1.5rem;
+  border: 2px solid $purple;
+  border-radius: 6px;
+  background-color: $purple;
+  color: $white;
+  font-size: 0.875rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: $transition;
+
+  &:hover {
+    background-color: $pink;
+    border-color: $pink;
+  }
+}

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OG Cover — marck0101.com.br</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background-color: #1f1f1f;
+      font-family: 'Inter', system-ui, sans-serif;
+      color: #f8f8f8;
+    }
+
+    .canvas {
+      width: 1200px;
+      height: 630px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 0 80px;
+      gap: 60px;
+    }
+
+    /* Gradiente decorativo de fundo */
+    .bg-gradient {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 600px 500px at 110% 50%, rgba(141, 83, 255, 0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 400px 300px at -5% 80%, rgba(0, 255, 164, 0.10) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* Linha decorativa esquerda */
+    .accent-bar {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 6px;
+      background: linear-gradient(180deg, #8d53ff 0%, #ca6be6 50%, rgb(0, 255, 164) 100%);
+    }
+
+    /* Conteúdo principal */
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      font-family: 'Fira Code', monospace;
+      font-size: 16px;
+      color: rgb(0, 255, 164);
+      letter-spacing: 0.08em;
+      opacity: 0.9;
+    }
+
+    .name {
+      font-size: 62px;
+      font-weight: 800;
+      line-height: 1.05;
+      background: -webkit-linear-gradient(135deg, rgb(0, 255, 164), rgb(166, 104, 255));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .role {
+      font-size: 22px;
+      font-weight: 400;
+      color: #c9c9c9;
+      line-height: 1.4;
+    }
+
+    .role strong {
+      color: #f8f8f8;
+      font-weight: 600;
+    }
+
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #8d53ff, #ca6be6);
+      border-radius: 2px;
+    }
+
+    .stack-label {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #c9c9c9;
+    }
+
+    .stack-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: 'Fira Code', monospace;
+      border: 1.5px solid;
+    }
+
+    .tag-purple {
+      border-color: #8d53ff;
+      color: #8d53ff;
+      background: rgba(141, 83, 255, 0.08);
+    }
+
+    .tag-green {
+      border-color: rgb(0, 255, 164);
+      color: rgb(0, 255, 164);
+      background: rgba(0, 255, 164, 0.06);
+    }
+
+    .tag-pink {
+      border-color: #ca6be6;
+      color: #ca6be6;
+      background: rgba(202, 107, 230, 0.08);
+    }
+
+    /* Bloco direito — terminal decorativo */
+    .terminal-card {
+      width: 340px;
+      flex-shrink: 0;
+      background: #27242f;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .terminal-bar {
+      background: #8c8c8c;
+      padding: 10px 14px;
+      display: flex;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .dot {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+    }
+
+    .dot-red   { background: #ff6057; }
+    .dot-amber { background: #ffbd2e; }
+    .dot-green { background: #27c93f; }
+
+    .terminal-body {
+      padding: 22px 20px;
+      font-family: 'Fira Code', monospace;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .t-prompt { color: #ca6be6; }
+    .t-cmd    { color: #f8f8f8; }
+    .t-branch { color: #27c93f; }
+    .t-output { color: rgb(0, 255, 164); }
+    .t-dim    { color: #c9c9c9; opacity: 0.7; }
+    .t-cursor {
+      display: inline-block;
+      width: 9px;
+      height: 16px;
+      background: #8d53ff;
+      vertical-align: middle;
+      border-radius: 2px;
+      margin-left: 3px;
+    }
+
+    /* URL rodapé */
+    .footer-url {
+      position: absolute;
+      bottom: 28px;
+      left: 86px;
+      right: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .url-text {
+      font-family: 'Fira Code', monospace;
+      font-size: 15px;
+      color: #c9c9c9;
+      opacity: 0.6;
+    }
+
+    .url-dot {
+      font-size: 15px;
+      color: #8d53ff;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="canvas">
+    <div class="bg-gradient"></div>
+    <div class="accent-bar"></div>
+
+    <!-- Conteúdo principal -->
+    <div class="content">
+      <span class="eyebrow">~/portfolio $ whoami</span>
+
+      <div class="name">Marcos<br>Corrêa</div>
+
+      <div class="role">
+        <strong>Desenvolvedor Full Stack</strong><br>
+        &amp; Gestor de Mídia Paga · Santo Cristo, RS
+      </div>
+
+      <div class="divider"></div>
+
+      <span class="stack-label">Stack</span>
+      <div class="stack-tags">
+        <span class="tag tag-green">React</span>
+        <span class="tag tag-purple">Node.js</span>
+        <span class="tag tag-green">JavaScript</span>
+        <span class="tag tag-pink">Next.js</span>
+        <span class="tag tag-purple">Tailwind</span>
+        <span class="tag tag-green">HTML5 · CSS3</span>
+        <span class="tag tag-pink">Git</span>
+      </div>
+    </div>
+
+    <!-- Terminal decorativo -->
+    <div class="terminal-card">
+      <div class="terminal-bar">
+        <div class="dot dot-red"></div>
+        <div class="dot dot-amber"></div>
+        <div class="dot dot-green"></div>
+      </div>
+      <div class="terminal-body">
+        <div>
+          <span class="t-prompt">marcos $</span>
+          <span class="t-cmd"> cat about</span>
+        </div>
+        <div>
+          <span class="t-branch">skills (main) $</span>
+          <span class="t-cmd"> ls</span>
+        </div>
+        <div>&nbsp;</div>
+        <div class="t-output">→ React &amp; Next.js</div>
+        <div class="t-output">→ Node.js · Express</div>
+        <div class="t-output">→ Firebase · APIs REST</div>
+        <div class="t-output">→ SCSS · Tailwind · MUI</div>
+        <div class="t-output">→ Google Ads · Meta Ads</div>
+        <div>&nbsp;</div>
+        <div>
+          <span class="t-prompt">marcos $</span>
+          <span class="t-dim"> _</span>
+          <span class="t-cursor"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- URL do rodapé -->
+    <div class="footer-url">
+      <span class="url-text">marck0101.com.br</span>
+      <span class="url-dot">◆</span>
+    </div>
+  </div>
+</body>
+</html>

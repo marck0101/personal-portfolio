@@ -3,6 +3,7 @@ import Style from './About.module.scss'
 import Terminal from './Terminal'
 import { Box } from '@mui/material'
 import { info } from '../../info/Info'
+import { Helmet } from 'react-helmet-async'
 
 export default function About() {
   const firstName = info.firstName.toLowerCase()
@@ -96,15 +97,22 @@ export default function About() {
   }
 
   return (
-    <Box
-      display={'flex'}
-      flexDirection={'column'}
-      alignItems={'center'}
-      mt={'3rem'}
-    >
-      <Terminal text={aboutMeText()} />
-      <Terminal text={skillsText()} />
-      <Terminal text={miscText()} />
-    </Box>
+    <>
+      <Helmet>
+        <title>Sobre Mim | Marcos Corrêa — Desenvolvedor Full Stack</title>
+        <meta name="description" content="Conheça Marcos Henrique Corrêa — Desenvolvedor Full Stack em Santo Cristo, RS. Habilidades em React, Node.js, JavaScript, Tailwind e mais." />
+        <link rel="canonical" href="https://marck0101.com.br/about" />
+      </Helmet>
+      <Box
+        display={'flex'}
+        flexDirection={'column'}
+        alignItems={'center'}
+        mt={'3rem'}
+      >
+        <Terminal text={aboutMeText()} />
+        <Terminal text={skillsText()} />
+        <Terminal text={miscText()} />
+      </Box>
+    </>
   )
 }
