@@ -1,6 +1,6 @@
 import React from "react";
 import Style from "./Home.module.scss";
-import me from "../../img/self5A.webp";
+import selfImg from "../../img/self5A.webp";
 import classNames from "classnames";
 import EmojiBullet from "./EmojiBullet";
 import SocialIcon from "./SocialIcon";
@@ -26,17 +26,24 @@ export default function Home() {
     >
       <Box
         className={classNames(Style.avatar, Style.shadowed)}
-        alt={"image of developer"}
         style={{ background: info.gradient }}
-        component={"img"}
-        src={me}
         width={{ xs: "35vh", md: "40vh" }}
         height={{ xs: "35vh", md: "40vh" }}
         borderRadius={"50%"}
         p={"0.75rem"}
         mb={{ xs: "1rem", sm: 0 }}
         mr={{ xs: 0, md: "2rem" }}
-      />
+        overflow={"hidden"}
+        flexShrink={0}
+      >
+        <img
+          src={selfImg}
+          alt="Marcos Henrique Corrêa"
+          width="100%"
+          height="100%"
+          style={{ objectFit: "cover", borderRadius: "50%" }}
+        />
+      </Box>
       <Box>
         <h1>
           Olá, me chamo
