@@ -249,8 +249,9 @@ img-port.png, img-port-light.png
 ### LGPD
 - [x] `CookieBanner` criado (`src/components/cookies/`) — aceita todos ou só essenciais, salva em localStorage
 - [x] `PrivacyPolicy` criado (`src/components/privacy/`) — modal `<dialog>` com conteúdo completo LGPD
-- [x] Clarity e Meta Pixel condicionados ao consentimento (`cookieConsent === "all"`)
+- [x] Clarity condicionado ao consentimento (`cookieConsent === "all"`)
 - [x] GTM mantido com Consent Mode v2 (defaults: denied) — LGPD-compliant sem bloquear o framework
+- [x] Meta Pixel standalone removido do `index.html` — já disparado pelas tags do próprio GTM (`facebook all pages`/`facebook Lead`), evitando double-tracking
 - [x] `window.enableAnalytics()` exposto para ativar analytics após consentimento React
 
 ---
@@ -267,8 +268,9 @@ img-port.png, img-port-light.png
 | Publish directory | `build` |
 | Deploy trigger | Push automático via SSH — `git push origin main` |
 | Tempo de deploy | ~1-2 minutos após o push |
-| Analytics | GTM (`GTM-KSZJXTHM`) + Clarity (`lyju0gbkv7`) + Meta Pixel (`1042435387262327`) — apenas em produção, após consentimento |
+| Analytics | GTM (`GTM-KSZJXTHM`) + Clarity (`lyju0gbkv7`) — apenas em produção, após consentimento. Meta Pixel disparado via tags do próprio GTM, sem código standalone |
 | Sitemap | https://marck0101.com.br/sitemap.xml |
+| Search Console | Verificado via meta tag (`google-site-verification`) em `index.html` + registro TXT no DNS (Netlify DNS) |
 
 **Workflow de deploy:**
 Claude Code edita → `git add` + `git commit` + `git push origin main` → Netlify deploya automaticamente.
@@ -286,3 +288,4 @@ Claude Code edita → `git add` + `git commit` + `git push origin main` → Netl
 | 2026-06-03 | Conteúdo: bio e position atualizados; descrições nos 6 cards do portfólio; aria-label no CookieBanner; focus-visible global ($purple); React.memo em EmojiBullet e SocialIcon; I1 (selfII→self5A) já resolvido na sessão anterior |
 | 2026-06-03 | Portfólio atualizado com 6 novos projetos reais; PortfolioBlock com placeholder para image:null |
 | 2026-06-03 | Imagens adicionadas para 3 projetos (Tais Müller, Dashboard, Veterinária); ToDoList.png vinculada à Lista de Tarefas; placeholder com título para Sistema de Chamados e Next Movies |
+| 2026-06-10 | Meta tag de verificação do Google Search Console adicionada ao `index.html` + registro TXT criado no Netlify DNS; Meta Pixel standalone removido (duplicava tags já existentes no GTM) |
