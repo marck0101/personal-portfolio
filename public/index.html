@@ -16,12 +16,20 @@
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://marck0101.com.br" />
 
+    <!-- Geo (local SEO) -->
+    <meta name="geo.region" content="BR-RS" />
+    <meta name="geo.placename" content="Santo Cristo" />
+    <meta name="geo.position" content="-27.8281;-54.6664" />
+    <meta name="ICBM" content="-27.8281, -54.6664" />
+
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://marck0101.com.br" />
     <meta property="og:title" content="Marcos Corrêa | Desenvolvedor Full Stack" />
     <meta property="og:description" content="Desenvolvedor Full Stack e Gestor de Mídia Paga em Santo Cristo, RS. Especialista em React, Node.js e marketing digital." />
-    <meta property="og:image" content="https://marck0101.com.br/logo.png" />
+    <meta property="og:image" content="https://marck0101.com.br/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:site_name" content="Marcos Corrêa | Portfólio" />
 
@@ -29,7 +37,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Marcos Corrêa | Desenvolvedor Full Stack" />
     <meta name="twitter:description" content="Desenvolvedor Full Stack e Gestor de Mídia Paga em Santo Cristo, RS. Especialista em React, Node.js e marketing digital." />
-    <meta name="twitter:image" content="https://marck0101.com.br/logo.png" />
+    <meta name="twitter:image" content="https://marck0101.com.br/og-image.png" />
 
     <!-- Dados estruturados JSON-LD -->
     <script type="application/ld+json">
@@ -42,12 +50,28 @@
           "jobTitle": "Desenvolvedor Full Stack & Gestor de Mídia Paga",
           "url": "https://marck0101.com.br",
           "email": "marck.mhc@gmail.com",
+          "image": "https://marck0101.com.br/og-image.png",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Santo Cristo",
             "addressRegion": "RS",
             "addressCountry": "BR"
           },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -27.8281,
+            "longitude": -54.6664
+          },
+          "knowsAbout": [
+            "React",
+            "Node.js",
+            "JavaScript",
+            "Next.js",
+            "Tailwind",
+            "Marketing Digital",
+            "Google Ads",
+            "Meta Ads"
+          ],
           "sameAs": [
             "https://github.com/marck0101",
             "https://www.linkedin.com/in/marcos-henrique-corr%C3%AAa-618392209/"
@@ -65,38 +89,44 @@
             {
               "@type": "ListItem",
               "position": 1,
-              "name": "JB Imobiliária",
-              "url": "https://front-jb-imobiliaria.vercel.app"
+              "name": "Tais L. Müller Arquiteta",
+              "description": "Site para escritório de arquitetura com foco em neuroarquitetura. Portfólio de obras, etapas do processo e formulário de contato. GTM implementado.",
+              "url": "https://taismuller-arquiteta.netlify.app"
             },
             {
               "@type": "ListItem",
               "position": 2,
-              "name": "Portfólio Pessoal",
-              "url": "https://marck0101.com.br"
+              "name": "Dashboard de Marketing Integrado",
+              "description": "Painel custom conectando APIs do Meta Ads, Google Ads e LinkedIn. Eliminou ferramentas pagas de BI. Construído com React e PostgreSQL.",
+              "url": "https://marck0101.com.br/portfolio"
             },
             {
               "@type": "ListItem",
               "position": 3,
-              "name": "VDR-Site",
-              "url": "https://vdr-site.vercel.app"
+              "name": "Blog — Marcos Henrique",
+              "description": "Blog pessoal com conteúdo sobre desenvolvimento, marketing digital e gestão de tráfego pago.",
+              "url": "https://blog.marck0101.com.br"
             },
             {
               "@type": "ListItem",
               "position": 4,
-              "name": "VDR-Dashboard Admin",
-              "url": "https://marck0101.com.br/portfolio"
+              "name": "Site Institucional + Blog — Veterinária Tamires",
+              "description": "Site e blog para médica veterinária com foco em conteúdo educativo e autoridade. PHP, MySQL e hospedagem InfinityFree.",
+              "url": "https://veterinariatamires.lovestoblog.com"
             },
             {
               "@type": "ListItem",
               "position": 5,
-              "name": "Meus Certificados",
-              "url": "https://github.com/marck0101/certificados"
+              "name": "Next Movies",
+              "description": "Listagem de filmes em cartaz com consumo de API REST externa e hooks avançados do React em produção.",
+              "url": "https://filmes-lancamentos-atualizados.netlify.app"
             },
             {
               "@type": "ListItem",
               "position": 6,
-              "name": "Currículo",
-              "url": "https://marck0101.com.br/portfolio"
+              "name": "Lista de Tarefas com Autenticação",
+              "description": "Gerenciador de tarefas com login/logout e persistência via Firebase Firestore. Dados isolados por usuário.",
+              "url": "https://atual-lista-tarefas.netlify.app"
             }
           ]
         }
@@ -122,7 +152,70 @@
 
   </head>
   <body>
-    <noscript>Ative o JavaScript para executar este app.</noscript>
+    <noscript>
+      Ative o JavaScript para executar este app.
+
+      <h1>Marcos Henrique Corrêa</h1>
+      <h2>Desenvolvedor Full Stack & Gestor de Mídia Paga — Santo Cristo, RS</h2>
+      <p>
+        Olá! Eu sou Marcos, desenvolvedor Full Stack e Gestor de Mídia Paga de
+        Santo Cristo, RS. Trabalho com React, Node.js e estratégias digitais,
+        transformando ideias em produtos web reais e campanhas que convertem.
+      </p>
+
+      <h3>Stack principal</h3>
+      <p>
+        JavaScript, React, Next.js, HTML5, CSS3, Sass/SCSS Modules, Tailwind,
+        Bootstrap, Material UI, Git, GitHub, npm, JSON, APIs REST.
+      </p>
+
+      <h3>Também trabalho com</h3>
+      <p>Node.js, Java, Express, Firebase, Figma.</p>
+
+      <h3>Projetos do portfólio</h3>
+      <ul>
+        <li>
+          <strong>Tais L. Müller Arquiteta</strong> — Site para escritório de
+          arquitetura com foco em neuroarquitetura. Portfólio de obras, etapas
+          do processo e formulário de contato. GTM implementado.
+          (<a href="https://taismuller-arquiteta.netlify.app">acessar</a>)
+        </li>
+        <li>
+          <strong>Dashboard de Marketing Integrado</strong> — Painel custom
+          conectando APIs do Meta Ads, Google Ads e LinkedIn. Eliminou
+          ferramentas pagas de BI. Construído com React e PostgreSQL.
+        </li>
+        <li>
+          <strong>Blog — Marcos Henrique</strong> — Blog pessoal com conteúdo
+          sobre desenvolvimento, marketing digital e gestão de tráfego pago.
+          (<a href="https://blog.marck0101.com.br">acessar</a>)
+        </li>
+        <li>
+          <strong>Site Institucional + Blog — Veterinária Tamires</strong> —
+          Site e blog para médica veterinária com foco em conteúdo educativo e
+          autoridade. PHP, MySQL e hospedagem InfinityFree.
+          (<a href="https://veterinariatamires.lovestoblog.com">acessar</a>)
+        </li>
+        <li>
+          <strong>Next Movies</strong> — Listagem de filmes em cartaz com
+          consumo de API REST externa e hooks avançados do React em produção.
+          (<a href="https://filmes-lancamentos-atualizados.netlify.app">acessar</a>)
+        </li>
+        <li>
+          <strong>Lista de Tarefas com Autenticação</strong> — Gerenciador de
+          tarefas com login/logout e persistência via Firebase Firestore.
+          Dados isolados por usuário.
+          (<a href="https://atual-lista-tarefas.netlify.app">acessar</a>)
+        </li>
+      </ul>
+
+      <h3>Contato</h3>
+      <p>
+        E-mail: marck.mhc@gmail.com |
+        <a href="https://github.com/marck0101">GitHub</a> |
+        <a href="https://www.linkedin.com/in/marcos-henrique-corr%C3%AAa-618392209/">LinkedIn</a>
+      </p>
+    </noscript>
     <div id="root"></div>
 
     <script>

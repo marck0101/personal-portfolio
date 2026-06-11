@@ -240,11 +240,17 @@ img-port.png, img-port-light.png
 - [x] `<meta name="author">`, `<meta name="robots">`, `<link rel="canonical">`
 - [x] Open Graph completo (og:type, og:url, og:title, og:description, og:image, og:locale, og:site_name)
 - [x] Twitter Card (summary_large_image)
-- [x] JSON-LD: Person + WebSite + ItemList com os 6 projetos
+- [x] JSON-LD: Person + WebSite + ItemList com os 6 projetos reais (sincronizado com `Info.js`)
 - [x] `robots.txt` com diretiva `Sitemap:`
 - [x] `public/sitemap.xml` criado com as 3 rotas e prioridades
 - [x] `react-helmet-async` instalado e integrado (Home, About, Portfolio com title/description/canonical por rota)
 - [x] `lang="pt-BR"` corrigido (BCP 47)
+- [x] `public/og-image.png` (1200×630) gerado a partir de `og-cover.html` via `google-chrome --headless --screenshot`; `og:image`/`twitter:image` atualizados
+
+### GEO (Geographic + Generative Engine Optimization)
+- [x] Meta tags geográficas em `index.html`: `geo.region` (BR-RS), `geo.placename` (Santo Cristo), `geo.position`, `ICBM`
+- [x] Schema `Person` no JSON-LD com `geo` (GeoCoordinates) e `knowsAbout` (stack/skills)
+- [x] Bloco `<noscript>` em `index.html` com bio, skills e os 6 projetos em texto puro — conteúdo legível por crawlers de IA que não executam JS (GPTBot, ClaudeBot, PerplexityBot, etc.)
 
 ### LGPD
 - [x] `CookieBanner` criado (`src/components/cookies/`) — aceita todos ou só essenciais, salva em localStorage
@@ -289,3 +295,4 @@ Claude Code edita → `git add` + `git commit` + `git push origin main` → Netl
 | 2026-06-03 | Portfólio atualizado com 6 novos projetos reais; PortfolioBlock com placeholder para image:null |
 | 2026-06-03 | Imagens adicionadas para 3 projetos (Tais Müller, Dashboard, Veterinária); ToDoList.png vinculada à Lista de Tarefas; placeholder com título para Sistema de Chamados e Next Movies |
 | 2026-06-10 | Meta tag de verificação do Google Search Console adicionada ao `index.html` + registro TXT criado no Netlify DNS; Meta Pixel standalone removido (duplicava tags já existentes no GTM) |
+| 2026-06-10 | Auditoria SEO/GEO: JSON-LD reescrito com os 6 projetos reais; meta tags geo (geo.region/placename/position, ICBM) e GeoCoordinates/knowsAbout no schema Person; og-image.png (1200×630) gerado a partir do og-cover.html; bloco `<noscript>` com bio/skills/projetos para crawlers de IA sem JS; sitemap.xml com lastmod atualizado |
