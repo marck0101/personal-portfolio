@@ -131,7 +131,6 @@
         var IS_PROD = PROD_HOSTS.indexOf(location.hostname) > -1
 
         var GTM_ID = 'GTM-KSZJXTHM'
-        var FB_ID = '1042435387262327'
         var CLARITY_ID = 'lyju0gbkv7'
 
         function loadGTM() {
@@ -147,30 +146,6 @@
             j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
             f.parentNode.insertBefore(j, f)
           })(window, document, 'script', 'dataLayer', GTM_ID)
-        }
-
-        ;(function (f) {
-          if (f.fbq) return
-          var n = (f.fbq = function () {
-            n.callMethod
-              ? n.callMethod.apply(n, arguments)
-              : n.queue.push(arguments)
-          })
-          if (!f._fbq) f._fbq = n
-          n.push = n
-          n.loaded = false
-          n.version = '2.0'
-          n.queue = []
-        })(window)
-        function loadFB() {
-          if (window._fbLoaded) return
-          window._fbLoaded = true
-          var s = document.createElement('script')
-          s.async = true
-          s.src = 'https://connect.facebook.net/en_US/fbevents.js'
-          document.head.appendChild(s)
-          fbq('init', FB_ID)
-          fbq('track', 'PageView')
         }
 
         function loadClarity() {
@@ -192,7 +167,6 @@
 
         function enableAnalyticsVendors() {
           if (!IS_PROD) return
-          loadFB()
           loadClarity()
           if (typeof gtag === 'function') {
             gtag('consent', 'update', {
@@ -211,7 +185,7 @@
           if (!IS_PROD) return
           // GTM sempre sobe — Consent Mode v2 garante que nada rastreia sem consentimento
           loadGTM()
-          // Clarity e Pixel só sobem se usuário já aceitou
+          // Clarity só sobe se usuário já aceitou
           if (localStorage.getItem('cookieConsent') === 'all') {
             enableAnalyticsVendors()
           }
@@ -234,15 +208,5 @@
         }
       })()
     </script>
-
-    <noscript>
-      <img
-        height="1"
-        width="1"
-        style="display: none"
-        src="https://www.facebook.com/tr?id=1042435387262327&ev=PageView&noscript=1"
-        alt=""
-      />
-    </noscript>
   </body>
 </html>
