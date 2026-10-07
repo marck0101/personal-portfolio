@@ -44,7 +44,7 @@ export const info = {
 
   socials: [
     {
-      link: 'https://wa.me/5555999234969?text=Ol%C3%A1%2C+vim+atrav%C3%A9s+do+seu+portf%C3%B3lio',
+      link: 'https://wa.me/5555963370494?text=Ol%C3%A1%2C+vim+atrav%C3%A9s+do+seu+portf%C3%B3lio',
       icon: <FaWhatsapp />,
       label: 'whatsapp',
     },
