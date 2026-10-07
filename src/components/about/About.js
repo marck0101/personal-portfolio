@@ -100,8 +100,8 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>Sobre Mim | Marcos Henrique Corrêa — Desenvolvedor Full Stack</title>
-        <meta name="description" content="Conheça Marcos Henrique Corrêa — Desenvolvedor Full Stack em Santo Cristo, RS. Habilidades em React, Node.js, JavaScript, Tailwind e mais." />
+        <title>Sobre Mim | Marcos Henrique Corrêa — Programador e Gestor de Tráfego</title>
+        <meta name="description" content="Conheça Marcos Henrique Corrêa, programador full stack e gestor de tráfego em Santo Cristo, RS. React, Node.js, JavaScript, Google Ads e Meta Ads." />
         <link rel="canonical" href="https://marck0101.com.br/about" />
       </Helmet>
       <SrOnlyHeading>Sobre Marcos Henrique Corrêa</SrOnlyHeading>

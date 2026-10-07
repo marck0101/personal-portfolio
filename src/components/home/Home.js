@@ -11,8 +11,8 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>Marcos Henrique Corrêa | Desenvolvedor Full Stack — Santo Cristo, RS</title>
-        <meta name="description" content="Marcos Henrique Corrêa — Desenvolvedor Full Stack e Gestor de Mídia Paga em Santo Cristo, RS. React, Node.js e marketing digital. Veja meu portfólio e blog." />
+        <title>Marcos Henrique Corrêa | Programador Full Stack e Gestor de Tráfego</title>
+        <meta name="description" content="Marcos Henrique Corrêa, programador full stack e gestor de tráfego (Google Ads, Meta Ads e LinkedIn Ads) em Santo Cristo, RS. React, Node.js, campanhas e rastreamento. Veja portfólio e blog." />
         <link rel="canonical" href="https://marck0101.com.br/" />
       </Helmet>
     <Box

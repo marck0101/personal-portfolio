@@ -7,7 +7,8 @@ import Portfolio from "./portfolio/Portfolio";
 import CookieBanner from "./cookies/CookieBanner";
 import PrivacyPolicy from "./privacy/PrivacyPolicy";
 import NotFound from "./NotFound";
-import { Route, Routes } from "react-router-dom";
+import ServicePage from "./services/ServicePage";
+import { Link, Route, Routes } from "react-router-dom";
 import { Box, Grid } from "@mui/material";
 import { info } from "../info/Info";
 
@@ -47,6 +48,8 @@ export default function BaseLayout() {
             <Route exact path={"/"} element={<Home />} />
             <Route exact path={"/about"} element={<About />} />
             <Route exact path={"/portfolio"} element={<Portfolio />} />
+            <Route path={info.services.trafego.path} element={<ServicePage service={info.services.trafego} />} />
+            <Route path={info.services.programador.path} element={<ServicePage service={info.services.programador} />} />
             <Route path={"*"} element={<NotFound />} />
           </Routes>
         </Grid>
@@ -64,6 +67,11 @@ export default function BaseLayout() {
               Made by <a href={"https://github.com/marck0101"}>marck0101</a>
               {" · "}
               <a href={info.blogUrl}>Blog do {info.fullName}</a>
+            </p>
+            <p>
+              <Link to={info.services.trafego.path}>Gestor de tráfego</Link>
+              {" · "}
+              <Link to={info.services.programador.path}>Programador full stack</Link>
             </p>
             <p>&copy; {new Date().getFullYear()}</p>
           </Box>

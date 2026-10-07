@@ -1,0 +1,205 @@
+@import "../../variables.modules";
+
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 2rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 2.5rem;
+
+  @media only screen and (min-width: 940px) {
+    text-align: left;
+  }
+}
+
+// Sobrescreve o seletor global de h1 (Home.module.scss) para este layout
+.title {
+  font-size: 1.8rem !important;
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+
+  @media only screen and (min-width: 940px) {
+    font-size: 2.6rem !important;
+  }
+}
+
+.titleRole {
+  white-space: nowrap;
+}
+
+.tagline {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+
+  @media only screen and (min-width: 940px) {
+    font-size: 1.5rem;
+  }
+}
+
+.lead {
+  font-size: 1.1rem;
+  opacity: 0.85;
+  max-width: 720px;
+
+  @media only screen and (max-width: 939px) {
+    margin: 0 auto;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  border: 1px solid rgba($purple, 0.35);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+}
+
+// h2 global (Home.module.scss) usa 2rem — aqui o título do card é menor
+.cardTitle {
+  font-size: 1.15rem !important;
+  text-align: left !important;
+  margin-bottom: 0.5rem;
+}
+
+.list {
+  list-style: disc;
+  padding-left: 1.25rem;
+
+  li {
+    color: inherit;
+    margin: 0.35rem 0;
+  }
+}
+
+.block {
+  margin-top: 2.5rem;
+}
+
+.blockTitle {
+  font-size: 1.5rem !important;
+  margin-bottom: 1rem;
+
+  @media only screen and (min-width: 940px) {
+    font-size: 1.75rem !important;
+  }
+}
+
+.results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  border-left: 3px solid $purple;
+  padding: 0.75rem 1rem;
+  background: rgba($purple, 0.06);
+  border-radius: 0 8px 8px 0;
+}
+
+.resultSegment {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.75;
+}
+
+.resultValue {
+  font-size: 1.15rem;
+}
+
+.resultDetail {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.note {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.projects {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+
+  li {
+    display: flex;
+    flex-direction: column;
+    color: inherit;
+  }
+}
+
+.projectName {
+  font-weight: bold;
+  color: $purple !important;
+}
+
+.textLink {
+  font-weight: bold;
+  color: $purple !important;
+
+  &:hover {
+    color: $pink !important;
+  }
+}
+
+.cta {
+  text-align: center;
+  border-top: 1px solid rgba($purple, 0.25);
+  padding-top: 2rem;
+
+  .blockTitle {
+    text-align: center !important;
+  }
+}
+
+.ctaButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 25px;
+  border: 2px solid currentColor;
+  font-weight: bold;
+  color: inherit;
+  transition: $transition;
+
+  &:hover {
+    border-color: $purple;
+    color: $purple !important;
+  }
+}
+
+.related {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}

@@ -56,6 +56,9 @@ $transition: all 250ms ease;
 | `/` | `Home` | Hero com avatar, nome, miniBio e ícones sociais |
 | `/about` | `About` | 3 terminais: bio, skills e hobbies |
 | `/portfolio` | `Portfolio` | Grid de cards de projeto |
+| `/gestor-de-trafego` | `ServicePage` | Página de serviço (dados em `info.services.trafego`) — h1 "Marcos Henrique Corrêa — Gestor de Tráfego" |
+| `/programador` | `ServicePage` | Página de serviço (dados em `info.services.programador`) — h1 "Marcos Henrique Corrêa — Programador Full Stack" |
+| `*` | `NotFound` | 404 com noindex |
 
 Não há rota para Metrics — o script do Microsoft Clarity é injetado diretamente via `public/index.html` (condicionado ao consentimento LGPD).
 
@@ -309,3 +312,4 @@ Claude Code edita → `git add` + `git commit` + `git push origin main` → Netl
 | 2026-10-06 | SEO para busca pelo nome: ProfilePage/Person com @id compartilhado com o blog, nome completo em title/H1, canonical único por rota (data-rh), preload do LCP, fonte não bloqueante, links cruzados com o blog |
 | 2026-10-06 | Projeto Noite a Dois adicionado (Info.js, JSON-LD ItemList, noscript); rota `*` com NotFound + noindex (soft 404); logo "Js" da Navbar deixou de ser `<h1>`; títulos dos cards viraram `<h2>`; `<h1>` sr-only em About/Portfolio (`SrOnlyHeading`) |
 | 2026-10-07 | Projeto da arquiteta renomeado para "Taís Regina Müller — Arquiteta" (nome correto; antes "Tais L. Müller") |
+| 2026-10-07 | Estratégia de busca por nome + profissão: páginas `/gestor-de-trafego` e `/programador` (`components/services/ServicePage.js`), posicionamento "Programador Full Stack & Gestor de Tráfego" em title/H2/miniBio/JSON-LD (`hasOccupation`), links internos no miniBio e rodapé, sitemap atualizado |
