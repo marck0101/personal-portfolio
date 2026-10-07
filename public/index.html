@@ -9,12 +9,24 @@
     <link rel="icon" href="./logo.png" />
     <base href="/" />
 
-    <!-- SEO primário -->
-    <title>Marcos Corrêa | Desenvolvedor Full Stack — Santo Cristo, RS</title>
-    <meta name="description" content="Desenvolvedor Full Stack e Gestor de Mídia Paga em Santo Cristo, RS. Especialista em React, Node.js e marketing digital. Veja meu portfólio." />
+    <!-- Performance: LCP (foto do hero) e fonte descobertos já no HTML -->
+    <link rel="preload" as="image" href="/marcos-henrique-correa.webp" fetchpriority="high" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" /></noscript>
+
+    <!-- SEO primário
+         description/canonical levam data-rh para o react-helmet-async substituí-los
+         por rota (sem isso /about e /portfolio ficariam com dois canonicals). -->
+    <title>Marcos Henrique Corrêa | Desenvolvedor Full Stack — Santo Cristo, RS</title>
+    <meta data-rh="true" name="description" content="Marcos Henrique Corrêa — Desenvolvedor Full Stack e Gestor de Mídia Paga em Santo Cristo, RS. React, Node.js e marketing digital. Veja meu portfólio e blog." />
     <meta name="author" content="Marcos Henrique Corrêa" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://marck0101.com.br" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link data-rh="true" rel="canonical" href="https://marck0101.com.br/" />
+    <link rel="me" href="https://github.com/marck0101" />
+    <link rel="me" href="https://www.linkedin.com/in/marcos-henrique-corr%C3%AAa-618392209/" />
+    <link rel="me" href="https://blog.marck0101.com.br/blog" />
 
     <!-- Geo (local SEO) -->
     <meta name="geo.region" content="BR-RS" />
@@ -24,18 +36,18 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://marck0101.com.br" />
-    <meta property="og:title" content="Marcos Corrêa | Desenvolvedor Full Stack" />
+    <meta property="og:url" content="https://marck0101.com.br/" />
+    <meta property="og:title" content="Marcos Henrique Corrêa | Desenvolvedor Full Stack" />
     <meta property="og:description" content="Desenvolvedor Full Stack e Gestor de Mídia Paga em Santo Cristo, RS. Especialista em React, Node.js e marketing digital." />
     <meta property="og:image" content="https://marck0101.com.br/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="pt_BR" />
-    <meta property="og:site_name" content="Marcos Corrêa | Portfólio" />
+    <meta property="og:site_name" content="Marcos Henrique Corrêa" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Marcos Corrêa | Desenvolvedor Full Stack" />
+    <meta name="twitter:title" content="Marcos Henrique Corrêa | Desenvolvedor Full Stack" />
     <meta name="twitter:description" content="Desenvolvedor Full Stack e Gestor de Mídia Paga em Santo Cristo, RS. Especialista em React, Node.js e marketing digital." />
     <meta name="twitter:image" content="https://marck0101.com.br/og-image.png" />
 
@@ -45,12 +57,25 @@
       "@context": "https://schema.org",
       "@graph": [
         {
+          "@type": "ProfilePage",
+          "@id": "https://marck0101.com.br/#profilepage",
+          "url": "https://marck0101.com.br/",
+          "name": "Marcos Henrique Corrêa | Desenvolvedor Full Stack",
+          "inLanguage": "pt-BR",
+          "isPartOf": { "@id": "https://marck0101.com.br/#website" },
+          "mainEntity": { "@id": "https://marck0101.com.br/#person" }
+        },
+        {
           "@type": "Person",
+          "@id": "https://marck0101.com.br/#person",
           "name": "Marcos Henrique Corrêa",
+          "givenName": "Marcos Henrique",
+          "familyName": "Corrêa",
+          "alternateName": ["Marcos Corrêa", "Marcos Henrique Correa", "Marcos Henrique", "marck0101"],
           "jobTitle": "Desenvolvedor Full Stack & Gestor de Mídia Paga",
-          "url": "https://marck0101.com.br",
+          "url": "https://marck0101.com.br/",
           "email": "marck.mhc@gmail.com",
-          "image": "https://marck0101.com.br/og-image.png",
+          "image": "https://marck0101.com.br/marcos-henrique-correa.webp",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Santo Cristo",
@@ -74,13 +99,18 @@
           ],
           "sameAs": [
             "https://github.com/marck0101",
-            "https://www.linkedin.com/in/marcos-henrique-corr%C3%AAa-618392209/"
+            "https://www.linkedin.com/in/marcos-henrique-corr%C3%AAa-618392209/",
+            "https://blog.marck0101.com.br"
           ]
         },
         {
           "@type": "WebSite",
-          "name": "Marcos Corrêa | Portfólio",
-          "url": "https://marck0101.com.br"
+          "@id": "https://marck0101.com.br/#website",
+          "name": "Marcos Henrique Corrêa",
+          "alternateName": ["Marcos Corrêa | Portfólio", "marck0101"],
+          "url": "https://marck0101.com.br/",
+          "inLanguage": "pt-BR",
+          "publisher": { "@id": "https://marck0101.com.br/#person" }
         },
         {
           "@type": "ItemList",
@@ -96,34 +126,41 @@
             {
               "@type": "ListItem",
               "position": 2,
+              "name": "Noite a Dois",
+              "description": "Jogo web de verdade ou desafio para casais (+18) com 4 níveis, cronômetros e cartas personalizáveis. HTML, CSS e JavaScript puros.",
+              "url": "https://noite-a-dois.marck0101.com.br/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
               "name": "Dashboard de Marketing Integrado",
               "description": "Painel custom conectando APIs do Meta Ads, Google Ads e LinkedIn. Eliminou ferramentas pagas de BI. Construído com React e PostgreSQL.",
               "url": "https://marck0101.com.br/portfolio"
             },
             {
               "@type": "ListItem",
-              "position": 3,
+              "position": 4,
               "name": "Blog — Marcos Henrique",
               "description": "Blog pessoal com conteúdo sobre desenvolvimento, marketing digital e gestão de tráfego pago.",
-              "url": "https://blog.marck0101.com.br"
+              "url": "https://blog.marck0101.com.br/blog"
             },
             {
               "@type": "ListItem",
-              "position": 4,
+              "position": 5,
               "name": "Site Institucional + Blog — Veterinária Tamires",
               "description": "Site e blog para médica veterinária com foco em conteúdo educativo e autoridade. PHP, MySQL e hospedagem InfinityFree.",
               "url": "https://veterinariatamires.lovestoblog.com"
             },
             {
               "@type": "ListItem",
-              "position": 5,
+              "position": 6,
               "name": "Next Movies",
               "description": "Listagem de filmes em cartaz com consumo de API REST externa e hooks avançados do React em produção.",
               "url": "https://filmes-lancamentos-atualizados.netlify.app"
             },
             {
               "@type": "ListItem",
-              "position": 6,
+              "position": 7,
               "name": "Lista de Tarefas com Autenticação",
               "description": "Gerenciador de tarefas com login/logout e persistência via Firebase Firestore. Dados isolados por usuário.",
               "url": "https://atual-lista-tarefas.netlify.app"
@@ -179,6 +216,11 @@
           arquitetura com foco em neuroarquitetura. Portfólio de obras, etapas
           do processo e formulário de contato. GTM implementado.
           (<a href="https://taismuller-arquiteta.netlify.app">acessar</a>)
+        </li>
+        <li>
+          <strong>Noite a Dois</strong> — Jogo web de verdade ou desafio para
+          casais (+18) com 4 níveis, cronômetros e cartas personalizáveis.
+          (<a href="https://noite-a-dois.marck0101.com.br/">acessar</a>)
         </li>
         <li>
           <strong>Dashboard de Marketing Integrado</strong> — Painel custom

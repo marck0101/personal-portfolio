@@ -4,12 +4,16 @@ import DashImg     from '../img/sistema-dash-gh.png'
 import BlogImg     from '../img/blog-marcos.png'
 import VetImg      from '../img/veterinaria-tamires.png'
 import ToDoListImg from '../img/ToDoList.png'
+import NoiteADoisImg from '../img/noite-a-dois.png'
 
 export let colors = ['rgb(0,255,164)', 'rgb(166,104,255)']
 
 export const info = {
   firstName: ' Marcos',
   lastName: 'Henrique',
+  fullName: 'Marcos Henrique Corrêa',
+  photo: '/marcos-henrique-correa.webp', // public/ — URL estável usada no preload e no JSON-LD
+  blogUrl: 'https://blog.marck0101.com.br/blog',
   initials: 'Js',
   position: 'Desenvolvedor Full Stack & Gestor de Mídia Paga',
   gradient: `-webkit-linear-gradient(135deg, ${colors})`,
@@ -26,6 +30,11 @@ export const info = {
       emoji: '📈',
       text: 'Gestor de Mídia paga.',
       // text: "Piacullum's guitarist",
+    },
+    {
+      link: 'https://blog.marck0101.com.br/blog',
+      emoji: '📝',
+      text: 'Escrevo no blog sobre marketing e tecnologia.',
     },
     {
       link: "mailto:marck.mhc@gmail.com?subject=Let's work on something together!",
@@ -101,14 +110,20 @@ export const info = {
       image: TaisImg,
     },
     {
+      title: 'Noite a Dois',
+      description: 'Jogo web de verdade ou desafio para casais (+18) com 4 níveis, cronômetros e cartas personalizáveis. HTML, CSS e JavaScript puros, sem coleta de dados.',
+      live: 'https://noite-a-dois.marck0101.com.br/',
+      image: NoiteADoisImg,
+    },
+    {
       title: 'Dashboard de Marketing Integrado',
       description: 'Painel custom conectando APIs do Meta Ads, Google Ads e LinkedIn. Eliminou ferramentas pagas de BI. Construído com React e PostgreSQL.',
       image: DashImg,
     },
     {
-      title: 'Blog — Marcos Henrique',
+      title: 'Blog — Marcos Henrique Corrêa',
       description: 'Blog pessoal com conteúdo sobre desenvolvimento, marketing digital e gestão de tráfego pago.',
-      live: 'https://blog.marck0101.com.br',
+      live: 'https://blog.marck0101.com.br/blog',
       image: BlogImg,
     },
     {

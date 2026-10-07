@@ -30,7 +30,7 @@ function PortfolioBlock(props) {
           <span>{title}</span>
         </Box>
       )}
-      <h1 style={{ fontSize: "2rem" }}>{title}</h1>
+      <h2 style={{ fontSize: "2rem", margin: "0.67em 0" }}>{title}</h2>
       {description && (
         <p className={Style.description}>{description}</p>
       )}

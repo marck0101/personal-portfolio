@@ -2,13 +2,14 @@ import React from "react";
 import { Box } from "@mui/material";
 
 const EmojiBullet = React.memo(function EmojiBullet({ link, emoji, text }) {
+  // Sem link → <span>: <a> sem href não é rastreável e conta contra o SEO.
+  const Wrapper = link ? "a" : "span";
+  const linkProps = link
+    ? { href: link, target: "_blank", rel: "noopener noreferrer" }
+    : {};
+
   return (
-    <a
-      href={link}
-      target="_blank"
-      rel="noopener noreferrer"
-      style={{ fontSize: "1rem", lineHeight: "1.5" }}
-    >
+    <Wrapper {...linkProps} style={{ fontSize: "1rem", lineHeight: "1.5" }}>
       <Box
         component={"span"}
         aria-label={text}
@@ -19,7 +20,7 @@ const EmojiBullet = React.memo(function EmojiBullet({ link, emoji, text }) {
         {emoji}
       </Box>
       {text}
-    </a>
+    </Wrapper>
   );
 });
 

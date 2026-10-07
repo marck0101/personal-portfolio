@@ -1,6 +1,5 @@
 import React from "react";
 import Style from "./Home.module.scss";
-import selfImg from "../../img/self5A.webp";
 import classNames from "classnames";
 import EmojiBullet from "./EmojiBullet";
 import SocialIcon from "./SocialIcon";
@@ -12,9 +11,9 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>Marcos Corrêa | Desenvolvedor Full Stack — Santo Cristo, RS</title>
-        <meta name="description" content="Desenvolvedor Full Stack e Gestor de Mídia Paga em Santo Cristo, RS. Especialista em React, Node.js e marketing digital. Veja meu portfólio." />
-        <link rel="canonical" href="https://marck0101.com.br" />
+        <title>Marcos Henrique Corrêa | Desenvolvedor Full Stack — Santo Cristo, RS</title>
+        <meta name="description" content="Marcos Henrique Corrêa — Desenvolvedor Full Stack e Gestor de Mídia Paga em Santo Cristo, RS. React, Node.js e marketing digital. Veja meu portfólio e blog." />
+        <link rel="canonical" href="https://marck0101.com.br/" />
       </Helmet>
     <Box
       component={"main"}
@@ -37,11 +36,12 @@ export default function Home() {
         flexShrink={0}
       >
         <img
-          src={selfImg}
-          alt="Marcos Henrique Corrêa"
-          width="100%"
-          height="100%"
-          style={{ objectFit: "cover", borderRadius: "50%" }}
+          src={info.photo}
+          alt={info.fullName}
+          width="600"
+          height="600"
+          fetchpriority="high"
+          style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "50%" }}
         />
       </Box>
       <Box>
@@ -54,7 +54,7 @@ export default function Home() {
               WebkitTextFillColor: "transparent",
             }}
           >
-            {info.firstName}
+            {" "}{info.fullName}
           </span>
           <span className={Style.hand}>🤚</span>
         </h1>

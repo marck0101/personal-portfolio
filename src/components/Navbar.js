@@ -36,7 +36,11 @@ const LinkItem = ({ link, isActive, onClick }) => (
     sx={{ borderImageSource: info.gradient }}
   >
     <Link to={link.to} onClick={onClick} className={Style.link}>
-      {link.type === "Initials" ? <h1>{link.name}</h1> : <p>{link.name}</p>}
+      {link.type === "Initials" ? (
+        <span className={Style.initials}>{link.name}</span>
+      ) : (
+        <p>{link.name}</p>
+      )}
     </Link>
   </Box>
 );

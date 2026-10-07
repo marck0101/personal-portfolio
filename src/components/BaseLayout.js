@@ -6,8 +6,10 @@ import About from "./about/About";
 import Portfolio from "./portfolio/Portfolio";
 import CookieBanner from "./cookies/CookieBanner";
 import PrivacyPolicy from "./privacy/PrivacyPolicy";
+import NotFound from "./NotFound";
 import { Route, Routes } from "react-router-dom";
 import { Box, Grid } from "@mui/material";
+import { info } from "../info/Info";
 
 export default function BaseLayout() {
   let [darkMode, setDarkMode] = useState(false);
@@ -45,6 +47,7 @@ export default function BaseLayout() {
             <Route exact path={"/"} element={<Home />} />
             <Route exact path={"/about"} element={<About />} />
             <Route exact path={"/portfolio"} element={<Portfolio />} />
+            <Route path={"*"} element={<NotFound />} />
           </Routes>
         </Grid>
         <Grid item>
@@ -59,6 +62,8 @@ export default function BaseLayout() {
           >
             <p>
               Made by <a href={"https://github.com/marck0101"}>marck0101</a>
+              {" · "}
+              <a href={info.blogUrl}>Blog do {info.fullName}</a>
             </p>
             <p>&copy; {new Date().getFullYear()}</p>
           </Box>

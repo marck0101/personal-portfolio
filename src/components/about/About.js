@@ -4,6 +4,7 @@ import Terminal from './Terminal'
 import { Box } from '@mui/material'
 import { info } from '../../info/Info'
 import { Helmet } from 'react-helmet-async'
+import SrOnlyHeading from '../SrOnlyHeading'
 
 export default function About() {
   const firstName = info.firstName.toLowerCase()
@@ -99,10 +100,11 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>Sobre Mim | Marcos Corrêa — Desenvolvedor Full Stack</title>
+        <title>Sobre Mim | Marcos Henrique Corrêa — Desenvolvedor Full Stack</title>
         <meta name="description" content="Conheça Marcos Henrique Corrêa — Desenvolvedor Full Stack em Santo Cristo, RS. Habilidades em React, Node.js, JavaScript, Tailwind e mais." />
         <link rel="canonical" href="https://marck0101.com.br/about" />
       </Helmet>
+      <SrOnlyHeading>Sobre Marcos Henrique Corrêa</SrOnlyHeading>
       <Box
         display={'flex'}
         flexDirection={'column'}

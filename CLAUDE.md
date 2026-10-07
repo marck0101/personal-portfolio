@@ -170,6 +170,7 @@ info = {
 
 | # | Título | Live | Source | Imagem | Stack |
 |---|---|---|---|---|---|
+| 0 | Noite a Dois | https://noite-a-dois.marck0101.com.br/ | — | ✅ `noite-a-dois.png` | HTML/CSS/JS puros, Vercel (repo `marck0101/Noite-a-dois`) |
 | 1 | Tais L. Müller Arquiteta | https://taismuller-arquiteta.netlify.app | — | ✅ `taismuller-arquiteta.png` | React, Netlify, GTM |
 | 2 | Dashboard de Marketing Integrado | — | — | ✅ `sistema-dash-gh.png` | React, Node.js, PostgreSQL |
 | 3 | Blog — Marcos Henrique | https://blog.marck0101.com.br | — | ✅ `blog-marcos.png` | Blog pessoal |
@@ -252,6 +253,15 @@ img-port.png, img-port-light.png
 - [x] Schema `Person` no JSON-LD com `geo` (GeoCoordinates) e `knowsAbout` (stack/skills)
 - [x] Bloco `<noscript>` em `index.html` com bio, skills e os 6 projetos em texto puro — conteúdo legível por crawlers de IA que não executam JS (GPTBot, ClaudeBot, PerplexityBot, etc.)
 
+### SEO — busca pelo nome (2026-10-06)
+- [x] Nome completo "Marcos Henrique Corrêa" no `<title>`, H1 da Home (`info.fullName`), Helmet de todas as rotas, og:title e og:site_name
+- [x] JSON-LD: `ProfilePage` + `Person` com `@id` `https://marck0101.com.br/#person` (mesmo @id usado no blog — entidade única), `alternateName`, `sameAs` com o blog
+- [x] `description` e `canonical` do `index.html` com `data-rh="true"` para o Helmet substituí-los por rota (antes /about e /portfolio tinham 2 canonicals)
+- [x] Canonical da home com barra final (igual ao sitemap); links `rel="me"`; link para o blog no miniBio e no rodapé
+- [x] Foto do hero servida de `public/marcos-henrique-correa.webp` (URL estável) com preload + fetchpriority=high (LCP)
+- [x] Google Fonts saiu do `@import` no SCSS para `<link>` não bloqueante + preconnect no `index.html`
+- [x] `EmojiBullet` sem link renderiza `<span>` (antes `<a>` sem href)
+
 ### LGPD
 - [x] `CookieBanner` criado (`src/components/cookies/`) — aceita todos ou só essenciais, salva em localStorage
 - [x] `PrivacyPolicy` criado (`src/components/privacy/`) — modal `<dialog>` com conteúdo completo LGPD
@@ -296,3 +306,5 @@ Claude Code edita → `git add` + `git commit` + `git push origin main` → Netl
 | 2026-06-03 | Imagens adicionadas para 3 projetos (Tais Müller, Dashboard, Veterinária); ToDoList.png vinculada à Lista de Tarefas; placeholder com título para Sistema de Chamados e Next Movies |
 | 2026-06-10 | Meta tag de verificação do Google Search Console adicionada ao `index.html` + registro TXT criado no Netlify DNS; Meta Pixel standalone removido (duplicava tags já existentes no GTM) |
 | 2026-06-10 | Auditoria SEO/GEO: JSON-LD reescrito com os 6 projetos reais; meta tags geo (geo.region/placename/position, ICBM) e GeoCoordinates/knowsAbout no schema Person; og-image.png (1200×630) gerado a partir do og-cover.html; bloco `<noscript>` com bio/skills/projetos para crawlers de IA sem JS; sitemap.xml com lastmod atualizado |
+| 2026-10-06 | SEO para busca pelo nome: ProfilePage/Person com @id compartilhado com o blog, nome completo em title/H1, canonical único por rota (data-rh), preload do LCP, fonte não bloqueante, links cruzados com o blog |
+| 2026-10-06 | Projeto Noite a Dois adicionado (Info.js, JSON-LD ItemList, noscript); rota `*` com NotFound + noindex (soft 404); logo "Js" da Navbar deixou de ser `<h1>`; títulos dos cards viraram `<h2>`; `<h1>` sr-only em About/Portfolio (`SrOnlyHeading`) |

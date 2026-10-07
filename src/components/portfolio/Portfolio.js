@@ -4,15 +4,17 @@ import { info } from "../../info/Info";
 import { BsCodeSlash } from "react-icons/bs";
 import { Helmet } from "react-helmet-async";
 import Style from "./Portfolio.module.scss";
+import SrOnlyHeading from "../SrOnlyHeading";
 
 export default function Portfolio() {
   return (
     <>
       <Helmet>
-        <title>Portfólio | Marcos Corrêa — Desenvolvedor Full Stack</title>
-        <meta name="description" content="Projetos desenvolvidos por Marcos Corrêa: JB Imobiliária, VDR-Dashboard, sites React e mais. Veja o código e as demos ao vivo." />
+        <title>Portfólio | Marcos Henrique Corrêa — Desenvolvedor Full Stack</title>
+        <meta name="description" content="Projetos de Marcos Henrique Corrêa: sites institucionais, dashboard de marketing integrado (Meta Ads, Google Ads, LinkedIn), blog e apps React. Veja as demos ao vivo." />
         <link rel="canonical" href="https://marck0101.com.br/portfolio" />
       </Helmet>
+      <SrOnlyHeading>Portfólio de projetos de Marcos Henrique Corrêa</SrOnlyHeading>
       <div className={Style.grid}>
         {info.portfolio.map((project, index) => (
           <div key={index}>
