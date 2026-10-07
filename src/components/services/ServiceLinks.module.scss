@@ -1,0 +1,61 @@
+@import "../../variables.modules";
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.center {
+  align-items: center;
+  text-align: center;
+}
+
+// Na Home acompanha o texto: centralizado no mobile, à esquerda no desktop
+.start {
+  align-items: center;
+  text-align: center;
+
+  @media only screen and (min-width: 940px) {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: bold;
+  opacity: 0.85;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+
+  @media only screen and (min-width: 940px) {
+    .start & {
+      justify-content: flex-start;
+    }
+  }
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  border: 2px solid currentColor;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: inherit !important;
+  transition: $transition;
+
+  &:hover {
+    border-color: $purple;
+    color: $purple !important;
+    transform: translateY(-2px);
+  }
+}

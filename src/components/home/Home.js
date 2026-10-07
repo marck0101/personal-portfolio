@@ -6,6 +6,7 @@ import SocialIcon from "./SocialIcon";
 import { Box } from "@mui/material";
 import { info } from "../../info/Info";
 import { Helmet } from "react-helmet-async";
+import ServiceLinks from "../services/ServiceLinks";
 
 export default function Home() {
   return (
@@ -65,6 +66,9 @@ export default function Home() {
               <EmojiBullet emoji={bio.emoji} text={bio.text} link={bio.link} />
             </li>
           ))}
+        </Box>
+        <Box px={"0.8rem"} mb={"1.5rem"}>
+          <ServiceLinks align={"start"} />
         </Box>
         <Box
           display={"flex"}

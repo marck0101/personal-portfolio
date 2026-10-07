@@ -5,6 +5,7 @@ import { Box } from '@mui/material'
 import { info } from '../../info/Info'
 import { Helmet } from 'react-helmet-async'
 import SrOnlyHeading from '../SrOnlyHeading'
+import ServiceLinks from '../services/ServiceLinks'
 
 export default function About() {
   const firstName = info.firstName.toLowerCase()
@@ -114,6 +115,9 @@ export default function About() {
         <Terminal text={aboutMeText()} />
         <Terminal text={skillsText()} />
         <Terminal text={miscText()} />
+      </Box>
+      <Box my={'3rem'} px={'1rem'}>
+        <ServiceLinks title={'Conheça minhas áreas de atuação'} />
       </Box>
     </>
   )
