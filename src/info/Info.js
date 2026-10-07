@@ -104,7 +104,7 @@ export const info = {
   ],
   portfolio: [
     {
-      title: 'Tais L. Müller Arquiteta',
+      title: 'Taís Regina Müller — Arquiteta',
       description: 'Site para escritório de arquitetura com foco em neuroarquitetura. Portfólio de obras, etapas do processo e formulário de contato. GTM implementado.',
       live: 'https://taismuller-arquiteta.netlify.app',
       image: TaisImg,
