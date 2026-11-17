@@ -9,8 +9,8 @@ export default function Portfolio() {
   return (
     <>
       <Helmet>
-        <title>Portfólio | Marcos Henrique Corrêa — Programador e Gestor de Tráfego</title>
-        <meta name="description" content="Projetos de Marcos Henrique Corrêa: sites institucionais, dashboard de marketing integrado (Meta Ads, Google Ads, LinkedIn), blog e apps React. Veja as demos ao vivo." />
+        <title>{info.paginas.portfolio.titulo}</title>
+        <meta name="description" content={info.paginas.portfolio.descricao} />
         <link rel="canonical" href="https://marck0101.com.br/portfolio" />
       </Helmet>
       <main className="pagina">

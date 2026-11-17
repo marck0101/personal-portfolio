@@ -10,8 +10,8 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>Marcos Henrique Corrêa | Programador Full Stack e Gestor de Tráfego</title>
-        <meta name="description" content="Marcos Henrique Corrêa, programador full stack e gestor de tráfego (Google Ads, Meta Ads e LinkedIn Ads) em Santo Cristo, RS. React, Node.js, campanhas e rastreamento. Veja portfólio e blog." />
+        <title>{info.paginas.inicio.titulo}</title>
+        <meta name="description" content={info.paginas.inicio.descricao} />
         <link rel="canonical" href="https://marck0101.com.br/" />
       </Helmet>
       <main className={`pagina ${Style.hero}`}>

@@ -121,7 +121,23 @@ Todos os ícones usam `react-icons` (`fa`). Cor herdada dos tokens (`--texto-sua
 
 ---
 
-## 5. Fonte de Dados — `src/info/Info.js`
+## 5. Fonte de Dados — `src/info/conteudo.json` (+ `Info.js`)
+
+**Todo texto do site fica em `src/info/conteudo.json`.** O `Info.js` só junta esse JSON com os ícones (JSX) e as imagens (imports do webpack): `socials[].label` → ícone, `portfolio[].imagem` → arquivo em `src/img/`. Projeto com `"oculto": true` some do site, do JSON-LD e do `llms.txt`.
+
+O mesmo JSON alimenta o **pós-build** (`scripts/pos-build.js`, roda no `npm run build` e no Netlify), que gera em `build/`:
+
+| Arquivo | Para quê |
+|---|---|
+| `index.html`, `about.html`, `portfolio.html`, `gestor-de-trafego.html`, `programador.html` | o mesmo app React, mas cada rota com `title`, description, canonical, Open Graph, JSON-LD (ItemList, AboutPage, Service, BreadcrumbList) e um `<noscript>` com o conteúdo da página. Robôs de IA não executam JS: sem isso, todas as rotas eram cópia da home. O Netlify serve `/about` a partir de `about.html` antes da regra SPA |
+| `sitemap.xml` | rotas com `lastmod` (campo `atualizado` de cada página no JSON). **Atualize a data ao mudar o conteúdo da página** |
+| `llms.txt` | resumo do site em texto puro para IAs (GEO): quem é, serviços, resultados, projetos, contato |
+
+`public/robots.txt` libera buscadores e bots de IA (GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, Google-Extended) e aponta o sitemap. O `public/index.html` guarda só o JSON-LD fixo (ProfilePage, Person, WebSite); o `<noscript>` dele tem um texto padrão que o pós-build procura e substitui: não mude esse texto sem mudar o script.
+
+### Estrutura antiga (referência)
+
+### Fonte de Dados — `src/info/Info.js`
 
 **Este é o único arquivo a editar para mudar conteúdo do site.** Nunca editar texto diretamente nos componentes JSX.
 
@@ -303,3 +319,4 @@ Claude Code edita → `git add` + `git commit` + `git push origin main` → Netl
 | 2026-11-16 | Padronização com a marca marck0101 ("Relatório de campo"): tokens e BRAND.md copiados do blog, fontes Fraunces/IBM Plex, logo "m" + favicon SVG + ícone, temas `relatorio`/`relatorio-escuro` no lugar do dark mode por classe, Home/About/Portfólio/Serviços/Cookies/Privacidade/404 refeitos só com tokens, rodapé com assinatura e link da política, textos reescritos na voz da marca (sem emoji, gradiente ou terminal), og-cover/og-image refeitos. Removidos: variables.modules.scss, App.module.scss, Terminal, EmojiBullet, IconLink, SrOnlyHeading |
 | 2026-11-16 | Estilos de época iguais ao blog: menu Visual atual / Jornal / Terminal (`SkinToggle`, `utils/tema.js`, `styles/temas-epoca.scss`, fontes próprias); tokens `jornal`/`bbs` corrigidos com os valores reais do `raiz.css` (também em `blog/_marca`); "fig." removido das seções de texto do Sobre |
 | 2026-11-17 | Projeto JB Imobiliária adicionado (2º card, print do site novo, JSON-LD e noscript) |
+| 2026-11-17 | SEO/GEO para IAs: textos movidos para `src/info/conteudo.json`; `scripts/pos-build.js` gera HTML próprio por rota (title, canonical, OG, JSON-LD, `<noscript>` com o conteúdo), `sitemap.xml` com lastmod e `llms.txt`; `robots.txt` com bots de IA; `public/sitemap.xml` estático removido |

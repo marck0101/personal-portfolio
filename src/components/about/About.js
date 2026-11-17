@@ -8,8 +8,8 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>Sobre Mim | Marcos Henrique Corrêa — Programador e Gestor de Tráfego</title>
-        <meta name="description" content="Conheça Marcos Henrique Corrêa, programador full stack e gestor de tráfego em Santo Cristo, RS. React, Node.js, JavaScript, Google Ads e Meta Ads." />
+        <title>{info.paginas.sobre.titulo}</title>
+        <meta name="description" content={info.paginas.sobre.descricao} />
         <link rel="canonical" href="https://marck0101.com.br/about" />
       </Helmet>
       <main className="pagina">

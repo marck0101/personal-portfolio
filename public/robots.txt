@@ -1,4 +1,22 @@
-# https://www.robotstxt.org/robotstxt.html
+# Buscadores e assistentes de IA liberados: aparecer em respostas do ChatGPT,
+# Claude, Perplexity e Gemini ajuda quem procura gestor de tráfego ou
+# programador a me encontrar (GEO). Resumo para IAs: /llms.txt
 User-agent: *
-Disallow:
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
 Sitemap: https://marck0101.com.br/sitemap.xml
