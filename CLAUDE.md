@@ -152,6 +152,7 @@ info = {
 |---|---|---|---|---|---|
 | 0 | Noite a Dois | https://noite-a-dois.marck0101.com.br/ | — | ✅ `noite-a-dois.png` | HTML/CSS/JS puros, Vercel (repo `marck0101/Noite-a-dois`) |
 | 1 | Taís Regina Müller — Arquiteta | https://taismuller-arquiteta.netlify.app | — | ✅ `taismuller-arquiteta.png` | HTML, Tailwind (compilado), Netlify, GTM (repo `marck0101/portfolio-arquitetura`) |
+| 1b | JB Imobiliária | https://front-jb-imobiliaria.vercel.app | — | ✅ `jb-imobiliaria.png` (print de 2026-11-17) | Next.js 16, TypeScript, SEO/GEO, Vercel (repo `marck0101/front-jb-imobiliaria`) |
 | 2 | Dashboard de Marketing Integrado | — | — | ✅ `sistema-dash-gh.png` | React, Node.js, PostgreSQL |
 | 3 | Blog — Marcos Henrique | https://blog.marck0101.com.br | — | ✅ `blog-marcos.png` | Blog pessoal |
 | 4 | Site Institucional + Blog — Veterinária Tamires | https://veterinariatamires.lovestoblog.com | — | ✅ `veterinaria-tamires.png` | PHP, MySQL, WordPress |
@@ -301,3 +302,4 @@ Claude Code edita → `git add` + `git commit` + `git push origin main` → Netl
 | 2026-10-07 | Estratégia de busca por nome + profissão: páginas `/gestor-de-trafego` e `/programador` (`components/services/ServicePage.js`), posicionamento "Programador Full Stack & Gestor de Tráfego" em title/H2/miniBio/JSON-LD (`hasOccupation`), links internos no miniBio e rodapé, sitemap atualizado |
 | 2026-11-16 | Padronização com a marca marck0101 ("Relatório de campo"): tokens e BRAND.md copiados do blog, fontes Fraunces/IBM Plex, logo "m" + favicon SVG + ícone, temas `relatorio`/`relatorio-escuro` no lugar do dark mode por classe, Home/About/Portfólio/Serviços/Cookies/Privacidade/404 refeitos só com tokens, rodapé com assinatura e link da política, textos reescritos na voz da marca (sem emoji, gradiente ou terminal), og-cover/og-image refeitos. Removidos: variables.modules.scss, App.module.scss, Terminal, EmojiBullet, IconLink, SrOnlyHeading |
 | 2026-11-16 | Estilos de época iguais ao blog: menu Visual atual / Jornal / Terminal (`SkinToggle`, `utils/tema.js`, `styles/temas-epoca.scss`, fontes próprias); tokens `jornal`/`bbs` corrigidos com os valores reais do `raiz.css` (também em `blog/_marca`); "fig." removido das seções de texto do Sobre |
+| 2026-11-17 | Projeto JB Imobiliária adicionado (2º card, print do site novo, JSON-LD e noscript) |

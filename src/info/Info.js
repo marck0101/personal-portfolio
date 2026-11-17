@@ -6,6 +6,7 @@ import VetImg      from '../img/veterinaria-tamires.png'
 // import ToDoListImg from '../img/ToDoList.png' // projeto oculto (ver portfolio)
 import NoiteADoisImg from '../img/noite-a-dois.png'
 import NextMoviesImg from '../img/next-movies.png'
+import JbImobiliariaImg from '../img/jb-imobiliaria.png'
 
 export const info = {
   fullName: 'Marcos Henrique Corrêa',
@@ -198,6 +199,13 @@ export const info = {
       live: 'https://taismuller-arquiteta.netlify.app',
       stack: ['HTML', 'Tailwind', 'GTM'],
       image: TaisImg,
+    },
+    {
+      title: 'JB Imobiliária',
+      description: 'Site para imobiliária do noroeste do RS: vitrine com filtros, página própria para cada imóvel e atendimento pelo WhatsApp. SEO local e dados estruturados.',
+      live: 'https://front-jb-imobiliaria.vercel.app',
+      stack: ['Next.js', 'TypeScript', 'SEO'],
+      image: JbImobiliariaImg,
     },
     {
       title: 'Noite a Dois',
