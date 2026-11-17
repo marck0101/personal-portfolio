@@ -1,80 +1,49 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { NavLink } from "react-router-dom";
 import Style from "./Navbar.module.scss";
+import Logo from "./Logo";
 import Toggler from "./home/Toggler";
-import { Link, useLocation } from "react-router-dom";
-import { Box } from "@mui/material";
+import SkinToggle from "./SkinToggle";
 import { info } from "../info/Info";
 
 const links = [
-  {
-    name: "Home",
-    to: "/",
-    active: "home",
-  },
-  {
-    name: "Sobre mim",
-    to: "/about",
-    active: "about",
-  },
-  {
-    name: info.initials,
-    type: "Initials",
-    to: "/",
-    active: "home",
-  },
-  {
-    name: "Portfolio",
-    to: "/portfolio",
-    active: "portfolio",
-  },
+  { name: "Início", to: "/" },
+  { name: "Sobre", to: "/about" },
+  { name: "Portfólio", to: "/portfolio" },
 ];
 
-const LinkItem = ({ link, isActive, onClick }) => (
-  <Box
-    component={"li"}
-    className={isActive ? Style.active : ""}
-    sx={{ borderImageSource: info.gradient }}
-  >
-    <Link to={link.to} onClick={onClick} className={Style.link}>
-      {link.type === "Initials" ? (
-        <span className={Style.initials}>{link.name}</span>
-      ) : (
-        <p>{link.name}</p>
-      )}
-    </Link>
-  </Box>
-);
-
-export default function Navbar({ darkMode, handleClick }) {
-  const location = useLocation();
-  const [active, setActive] = useState(location.pathname);
-
-  useEffect(() => {
-    setActive(location.pathname);
-  }, [location]);
-
+// skin-header, skin-nav e skin-link: ganchos dos estilos de época (styles/temas-epoca.scss)
+export default function Navbar({ darkMode, handleClick, estilo, onEstilo }) {
   return (
-    <Box component={"nav"} width={"100%"}>
-      <Box
-        component={"ul"}
-        display={"flex"}
-        justifyContent={"center"}
-        alignItems={"center"}
-        gap={{ xs: "2rem", md: "8rem" }}
-        fontSize={"1rem"}
-      >
-        {links.map((link, index) => (
-          <LinkItem
-            key={index}
-            link={link}
-            isActive={link.active === active.slice(1)}
-            onClick={() => setActive(link.active)}
-          />
-        ))}
-        <li>
-          <Toggler darkMode={darkMode} handleClick={handleClick} />
-        </li>
-      </Box>
-    </Box>
+    <header className={`skin-header ${Style.header}`}>
+      <nav className={Style.nav} aria-label="Principal">
+        <Logo />
+        <ul className={`skin-nav ${Style.links}`}>
+          {links.map((link) => (
+            <li key={link.to}>
+              <NavLink
+                to={link.to}
+                end
+                className={({ isActive }) =>
+                  `skin-link ${Style.link}${isActive ? ` ${Style.active}` : ""}`
+                }
+              >
+                {link.name}
+              </NavLink>
+            </li>
+          ))}
+          <li>
+            <a href={info.blogUrl} className={`skin-link ${Style.link}`}>
+              Blog
+            </a>
+          </li>
+          <li className={Style.botoes}>
+            <SkinToggle estilo={estilo} onChange={onEstilo} />
+            {/* Jornal e Terminal têm a cor da época: o claro/escuro só aparece no visual atual */}
+            {estilo === "atual" && <Toggler darkMode={darkMode} handleClick={handleClick} />}
+          </li>
+        </ul>
+      </nav>
+    </header>
   );
 }

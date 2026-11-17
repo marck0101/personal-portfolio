@@ -1,101 +1,85 @@
-@import "../../variables.modules";
-
 .page {
   max-width: 960px;
-  margin: 0 auto;
-  padding: 3rem 1.5rem 2rem;
-  font-size: 1rem;
-  line-height: 1.6;
 }
 
-.hero {
-  text-align: center;
-  margin-bottom: 2.5rem;
+.crumb {
+  color: inherit;
 
-  @media only screen and (min-width: 940px) {
-    text-align: left;
+  &:hover {
+    color: var(--destaque);
   }
 }
 
-// Sobrescreve o seletor global de h1 (Home.module.scss) para este layout
 .title {
-  font-size: 1.8rem !important;
+  font-size: var(--tam-titulo-1);
   line-height: 1.2;
-  margin: 0 0 0.75rem;
-
-  @media only screen and (min-width: 940px) {
-    font-size: 2.6rem !important;
-  }
 }
 
 .titleRole {
-  white-space: nowrap;
+  color: var(--texto-suave);
 }
 
 .tagline {
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin-bottom: 0.75rem;
-
-  @media only screen and (min-width: 940px) {
-    font-size: 1.5rem;
-  }
-}
-
-.lead {
-  font-size: 1.1rem;
-  opacity: 0.85;
+  font-family: var(--fonte-texto);
+  font-weight: 500;
+  font-size: var(--tam-titulo-3);
+  line-height: 1.4;
   max-width: 720px;
-
-  @media only screen and (max-width: 939px) {
-    margin: 0 auto;
-  }
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 .card {
-  border: 1px solid rgba($purple, 0.35);
-  border-radius: 12px;
+  background: var(--superficie);
+  border: var(--borda);
+  border-radius: var(--raio);
   padding: 1.25rem 1.5rem;
 }
 
-// h2 global (Home.module.scss) usa 2rem — aqui o título do card é menor
 .cardTitle {
-  font-size: 1.15rem !important;
-  text-align: left !important;
+  font-family: var(--fonte-texto);
+  font-weight: 500;
+  font-size: var(--tam-titulo-3);
   margin-bottom: 0.5rem;
 }
 
 .list {
-  list-style: disc;
-  padding-left: 1.25rem;
+  list-style: none;
+  font-size: 0.975rem;
 
   li {
-    color: inherit;
-    margin: 0.35rem 0;
+    position: relative;
+    padding-left: 1rem;
+    margin: 0.4rem 0;
+    color: var(--texto-suave);
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.7em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--dado-grafico);
+    }
   }
 }
 
 .block {
-  margin-top: 2.5rem;
+  margin-top: 3rem;
 }
 
 .blockTitle {
-  font-size: 1.5rem !important;
   margin-bottom: 1rem;
-
-  @media only screen and (min-width: 940px) {
-    font-size: 1.75rem !important;
-  }
 }
 
 .results {
@@ -104,72 +88,64 @@
   gap: 1rem;
 }
 
+/* Barras em mate (BRAND.md §5: gráficos simples, barras em mate) */
 .result {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  border-left: 3px solid $purple;
-  padding: 0.75rem 1rem;
-  background: rgba($purple, 0.06);
-  border-radius: 0 8px 8px 0;
-}
-
-.resultSegment {
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  opacity: 0.75;
+  gap: 0.35rem;
+  padding: 1rem 1.15rem;
+  background: var(--superficie);
+  border: var(--borda);
+  border-left: 3px solid var(--dado-grafico);
+  border-radius: var(--raio);
 }
 
 .resultValue {
-  font-size: 1.15rem;
+  font-size: 1.125rem;
+  line-height: 1.35;
+  color: var(--texto);
 }
 
 .resultDetail {
-  font-size: 0.9rem;
-  opacity: 0.8;
+  font-size: var(--tam-pequeno);
+  color: var(--texto-suave);
 }
 
 .note {
   margin-top: 1rem;
-  font-size: 0.95rem;
-  opacity: 0.85;
+  font-size: var(--tam-pequeno);
+  color: var(--texto-nota);
 }
 
 .projects {
   display: grid;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+  gap: 0.9rem;
+  margin-bottom: 1.25rem;
 
   li {
     display: flex;
     flex-direction: column;
-    color: inherit;
+    gap: 0.1rem;
   }
 }
 
 .projectName {
-  font-weight: bold;
-  color: $purple !important;
+  font-weight: 500;
 }
 
 .textLink {
-  font-weight: bold;
-  color: $purple !important;
-
-  &:hover {
-    color: $pink !important;
-  }
+  font-weight: 500;
 }
 
 .cta {
   text-align: center;
-  border-top: 1px solid rgba($purple, 0.25);
-  padding-top: 2rem;
+  border-top: var(--divisoria);
+  padding-top: 2.5rem;
+}
 
-  .blockTitle {
-    text-align: center !important;
-  }
+.ctaText {
+  color: var(--texto-suave);
+  margin: -0.5rem 0 1.25rem;
 }
 
 .ctaButtons {
@@ -179,27 +155,10 @@
   gap: 0.75rem;
 }
 
-.button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1.25rem;
-  border-radius: 25px;
-  border: 2px solid currentColor;
-  font-weight: bold;
-  color: inherit;
-  transition: $transition;
-
-  &:hover {
-    border-color: $purple;
-    color: $purple !important;
-  }
-}
-
 .related {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1.5rem;
-  margin-top: 1.5rem;
+  margin-top: 1.75rem;
 }

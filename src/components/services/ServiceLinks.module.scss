@@ -1,5 +1,3 @@
-@import "../../variables.modules";
-
 .wrap {
   display: flex;
   flex-direction: column;
@@ -11,51 +9,55 @@
   text-align: center;
 }
 
-// Na Home acompanha o texto: centralizado no mobile, à esquerda no desktop
 .start {
-  align-items: center;
-  text-align: center;
-
-  @media only screen and (min-width: 940px) {
-    align-items: flex-start;
-    text-align: left;
-  }
+  align-items: flex-start;
+  text-align: left;
 }
 
 .title {
-  font-size: 1rem;
-  font-weight: bold;
-  opacity: 0.85;
+  font-family: var(--fonte-dado);
+  font-size: var(--tam-rotulo);
+  letter-spacing: 0.02em;
+  color: var(--texto-nota);
+  text-transform: var(--caixa-rotulo);
 }
 
 .buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  justify-content: center;
 
-  @media only screen and (min-width: 940px) {
-    .start & {
-      justify-content: flex-start;
-    }
+  .center & {
+    justify-content: center;
   }
 }
 
+/* Mesmo visual do .btn-secundario global */
 .pill {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.6rem 1.25rem;
-  border: 2px solid currentColor;
-  border-radius: 25px;
+  padding: 0.65rem 1.15rem;
+  border: var(--borda);
+  border-radius: var(--raio);
+  background: var(--superficie);
+  color: var(--texto);
   font-size: 1rem;
-  font-weight: bold;
-  color: inherit !important;
-  transition: $transition;
+  font-weight: 500;
+  line-height: 1.2;
+  transition: color var(--transicao), border-color var(--transicao);
+
+  svg {
+    color: var(--dado-grafico);
+    transition: color var(--transicao);
+  }
 
   &:hover {
-    border-color: $purple;
-    color: $purple !important;
-    transform: translateY(-2px);
+    border-color: var(--destaque);
+    color: var(--destaque);
+
+    svg {
+      color: var(--destaque);
+    }
   }
 }

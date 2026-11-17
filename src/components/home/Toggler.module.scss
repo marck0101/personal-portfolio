@@ -1,0 +1,18 @@
+.toggler {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: var(--borda);
+  border-radius: var(--raio);
+  background: var(--superficie);
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+  transition: color var(--transicao), border-color var(--transicao);
+
+  &:hover {
+    color: var(--destaque);
+    border-color: var(--destaque);
+  }
+}

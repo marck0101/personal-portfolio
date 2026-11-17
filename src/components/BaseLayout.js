@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Style from "./BaseLayout.module.scss";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 import Home from "./home/Home";
 import About from "./about/About";
 import Portfolio from "./portfolio/Portfolio";
@@ -8,77 +9,53 @@ import CookieBanner from "./cookies/CookieBanner";
 import PrivacyPolicy from "./privacy/PrivacyPolicy";
 import NotFound from "./NotFound";
 import ServicePage from "./services/ServicePage";
-import { Link, Route, Routes } from "react-router-dom";
-import { Box, Grid } from "@mui/material";
+import { Route, Routes } from "react-router-dom";
 import { info } from "../info/Info";
+import { aplicarTema, getEscuro, getEstilo, setEscuro, setEstilo } from "../utils/tema";
 
+// Estilo (atual/jornal/terminal) + claro/escuro → data-theme (utils/tema.js).
+// O index.html já aplica antes da pintura; aqui mantemos em sincronia.
 export default function BaseLayout() {
-  let [darkMode, setDarkMode] = useState(false);
-
-  function handleToggleDarkMode() {
-    let oppositeOfCurrentDarkMode = !darkMode;
-    localStorage.setItem("darkMode", `${oppositeOfCurrentDarkMode}`);
-    setDarkMode(oppositeOfCurrentDarkMode);
-  }
+  const [estilo, setEstiloState] = useState(getEstilo);
+  const [darkMode, setDarkMode] = useState(getEscuro);
 
   useEffect(() => {
-    let detectedDarkMode = localStorage.getItem("darkMode") === "true";
+    aplicarTema(estilo, darkMode);
+  }, [estilo, darkMode]);
 
-    if (detectedDarkMode) {
-      setDarkMode(detectedDarkMode);
-    } else {
-      localStorage.setItem("darkMode", "false");
-    }
-  }, []);
+  function handleToggleDarkMode() {
+    const next = !darkMode;
+    setEscuro(next);
+    setDarkMode(next);
+  }
+
+  function handleEstilo(next) {
+    window.dataLayer?.push({ event: "skin_toggle", skin: next, from: estilo });
+    setEstilo(next);
+    setEstiloState(next);
+  }
 
   return (
-    <Box className={darkMode ? Style.dark : Style.light}>
-      <Grid
-        container
-        display={"flex"}
-        flexDirection={"column"}
-        minHeight={"100vh"}
-        justifyContent={"space-between"}
-      >
-        <Grid item>
-          <Navbar darkMode={darkMode} handleClick={handleToggleDarkMode} />
-        </Grid>
-        <Grid item flexGrow={1}>
-          <Routes>
-            <Route exact path={"/"} element={<Home />} />
-            <Route exact path={"/about"} element={<About />} />
-            <Route exact path={"/portfolio"} element={<Portfolio />} />
-            <Route path={info.services.trafego.path} element={<ServicePage service={info.services.trafego} />} />
-            <Route path={info.services.programador.path} element={<ServicePage service={info.services.programador} />} />
-            <Route path={"*"} element={<NotFound />} />
-          </Routes>
-        </Grid>
-        <Grid item>
-          <Box
-            component={"footer"}
-            display={"flex"}
-            flexDirection={"column"}
-            alignItems={"center"}
-            py={"1.5rem"}
-            sx={{ opacity: 0.7 }}
-            width={"100%"}
-          >
-            <p>
-              Made by <a href={"https://github.com/marck0101"}>marck0101</a>
-              {" · "}
-              <a href={info.blogUrl}>Blog do {info.fullName}</a>
-            </p>
-            <p>
-              <Link to={info.services.trafego.path}>Gestor de tráfego</Link>
-              {" · "}
-              <Link to={info.services.programador.path}>Programador full stack</Link>
-            </p>
-            <p>&copy; {new Date().getFullYear()}</p>
-          </Box>
-        </Grid>
-      </Grid>
+    <div className={Style.shell}>
+      <Navbar
+        darkMode={darkMode}
+        handleClick={handleToggleDarkMode}
+        estilo={estilo}
+        onEstilo={handleEstilo}
+      />
+      <div className={Style.content}>
+        <Routes>
+          <Route exact path={"/"} element={<Home />} />
+          <Route exact path={"/about"} element={<About />} />
+          <Route exact path={"/portfolio"} element={<Portfolio />} />
+          <Route path={info.services.trafego.path} element={<ServicePage service={info.services.trafego} />} />
+          <Route path={info.services.programador.path} element={<ServicePage service={info.services.programador} />} />
+          <Route path={"*"} element={<NotFound />} />
+        </Routes>
+      </div>
+      <Footer />
       <CookieBanner />
       <PrivacyPolicy />
-    </Box>
+    </div>
   );
 }

@@ -1,0 +1,70 @@
+.wrap {
+  position: relative;
+}
+
+/* Mesmo visual do Toggler */
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: var(--borda);
+  border-radius: var(--raio);
+  background: var(--superficie);
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+  transition: color var(--transicao), border-color var(--transicao);
+
+  &:hover,
+  &[aria-expanded="true"] {
+    color: var(--destaque);
+    border-color: var(--destaque);
+  }
+}
+
+.menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.4rem);
+  z-index: 50;
+  min-width: 12rem;
+  padding: 0.25rem 0;
+  background: var(--superficie);
+  border: var(--borda);
+  border-radius: var(--raio);
+}
+
+.opcao {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.6rem 0.9rem;
+  border: 0;
+  background: none;
+  font-family: var(--fonte-texto);
+  font-size: var(--tam-pequeno);
+  text-align: left;
+  color: var(--texto);
+
+  svg {
+    color: var(--texto-nota);
+  }
+
+  span {
+    flex: 1;
+  }
+
+  &:hover {
+    background: var(--superficie-2);
+  }
+
+  &[aria-pressed="true"] svg {
+    color: var(--destaque);
+  }
+}
+
+.check {
+  font-size: 0.75rem;
+}

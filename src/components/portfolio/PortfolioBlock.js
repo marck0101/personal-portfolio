@@ -1,59 +1,53 @@
 import React from "react";
-import IconLink from "./IconLink";
-import { Box } from "@mui/material";
-import { FaGlobe, FaCode, FaRegImage } from "react-icons/fa";
+import { FaRegImage } from "react-icons/fa";
 import Style from "./PortfolioBlock.module.scss";
 
-function PortfolioBlock(props) {
-  const { image, live, source, title, description } = props;
+function PortfolioBlock({ index, image, live, source, title, description, stack = [] }) {
+  const fig = `fig. ${String(index).padStart(2, "0")}`;
+
   return (
-    <Box
-      display={"flex"}
-      flexDirection={"column"}
-      alignItems={"center"}
-      width={"100%"}
-      className={Style.card}
-    >
+    <article className={Style.card}>
       {image ? (
-        <Box className={Style.imageContainer}>
-          <Box
-            component={"img"}
+        <div className={Style.imageContainer}>
+          <img
             src={image}
-            alt={`mockup do projeto ${title}`}
+            alt={`Tela do projeto ${title}`}
             className={Style.image}
-            loading={"lazy"}
+            loading="lazy"
+            width="559"
+            height="447"
           />
-        </Box>
+        </div>
       ) : (
-        <Box className={Style.placeholder}>
-          <FaRegImage size={48} />
-          <span>{title}</span>
-        </Box>
+        <div className={Style.placeholder}>
+          <FaRegImage size={32} aria-hidden="true" />
+          <span className="rotulo">imagem em breve</span>
+        </div>
       )}
-      <h2 style={{ fontSize: "2rem", margin: "0.67em 0" }}>{title}</h2>
-      {description && (
-        <p className={Style.description}>{description}</p>
-      )}
-      <Box
-        display={"flex"}
-        flexDirection={"column"}
-        gap={"0.5rem"}
-        alignItems={"center"}
-        fontSize={"1.5rem"}
-        py={"2rem"}
-      >
-        {live && (
-          <Box p={1} border={"2px solid currentColor"} borderRadius={"25px"}>
-            <IconLink link={live} title={"Live Demo"} icon={<FaGlobe />} />
-          </Box>
-        )}
-        {source && (
-          <Box p={1} border={"2px solid currentColor"} borderRadius={"25px"}>
-            <IconLink link={source} title={"Source Code"} icon={<FaCode />} />
-          </Box>
-        )}
-      </Box>
-    </Box>
+
+      <div className={Style.corpo}>
+        <p className="rotulo">
+          {fig}
+          {stack.length > 0 && ` · ${stack.join(" · ")}`}
+        </p>
+        <h2 className={Style.titulo}>{title}</h2>
+        {description && <p className={Style.description}>{description}</p>}
+
+        <div className={Style.links}>
+          {live && (
+            <a href={live} target="_blank" rel="noopener noreferrer">
+              Ver o projeto no ar ↗
+            </a>
+          )}
+          {source && (
+            <a href={source} target="_blank" rel="noopener noreferrer">
+              Ver o código ↗
+            </a>
+          )}
+          {!live && !source && <span className={Style.semLink}>Projeto interno, sem link público.</span>}
+        </div>
+      </div>
+    </article>
   );
 }
 

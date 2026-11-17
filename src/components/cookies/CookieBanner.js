@@ -29,19 +29,19 @@ export default function CookieBanner() {
     <div className={Style.banner} role="dialog" aria-label="Aviso de cookies">
       <div className={Style.content}>
         <p className={Style.text}>
-          Este site usa cookies para melhorar a experiência e analisar o tráfego
-          (Google Analytics, Microsoft Clarity e Meta Pixel). Você pode aceitar
-          todos ou apenas os essenciais para o funcionamento do site.{" "}
+          Uso cookies para medir as visitas deste site (Google Analytics,
+          Microsoft Clarity e Meta Pixel). Você escolhe: aceitar todos ou só os
+          essenciais para o site funcionar.{" "}
           <button className={Style.policyLink} aria-label="Abrir política de privacidade" onClick={() => document.getElementById("privacy-policy-modal").showModal()}>
             Política de Privacidade
           </button>
           .
         </p>
         <div className={Style.actions}>
-          <button className={Style.btnEssential} aria-label="Aceitar apenas cookies essenciais" onClick={acceptEssential}>
+          <button className="btn-secundario" aria-label="Aceitar apenas cookies essenciais" onClick={acceptEssential}>
             Só essenciais
           </button>
-          <button className={Style.btnAccept} aria-label="Aceitar todos os cookies" onClick={acceptAll}>
+          <button className="btn-primario" aria-label="Aceitar todos os cookies" onClick={acceptAll}>
             Aceitar todos
           </button>
         </div>

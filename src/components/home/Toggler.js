@@ -1,24 +1,19 @@
 import React from "react";
-import { Box } from "@mui/material";
+import { FaMoon, FaSun } from "react-icons/fa";
+import Style from "./Toggler.module.scss";
 
+// Alterna entre os temas "relatorio" (claro) e "relatorio-escuro" da marca.
 export default function Toggler({ darkMode, handleClick }) {
+  const label = darkMode ? "Usar tema claro" : "Usar tema escuro";
   return (
-    <Box
-      fontSize={"1.5rem"}
-      sx={{
-        cursor: "pointer",
-        ":hover": { transform: "translateY(-3px)", transition: "all 250ms ease" },
-      }}
+    <button
+      type="button"
+      className={Style.toggler}
+      onClick={handleClick}
+      aria-label={label}
+      title={label}
     >
-      {darkMode ? (
-        <span onClick={handleClick} aria-label="Full Moon" role="img">
-          🌕
-        </span>
-      ) : (
-        <span onClick={handleClick} aria-label="New Moon" role="img">
-          🌑
-        </span>
-      )}
-    </Box>
+      {darkMode ? <FaSun aria-hidden="true" /> : <FaMoon aria-hidden="true" />}
+    </button>
   );
 }

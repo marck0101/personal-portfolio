@@ -1,0 +1,62 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--texto);
+
+  &:hover {
+    color: var(--texto);
+  }
+}
+
+/* Mínimo 24px (BRAND.md). Sem sombra, sem distorção. */
+.simbolo {
+  --tam: 32px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--tam);
+  height: var(--tam);
+  border-radius: calc(var(--tam) * 0.18);
+  background: var(--texto);
+}
+
+.m {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 600;
+  font-size: calc(var(--tam) * 0.7);
+  line-height: 1;
+  color: var(--fundo);
+  transform: translate(-6%, -6%);
+}
+
+.ponto {
+  position: absolute;
+  right: calc(var(--tam) * 0.14);
+  bottom: calc(var(--tam) * 0.2);
+  width: calc(var(--tam) * 0.17);
+  height: calc(var(--tam) * 0.17);
+  border-radius: 50%;
+  background: var(--marca-tijolo);
+}
+
+.textos {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.nome {
+  font-family: var(--fonte-dado);
+  font-weight: 500;
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
+}
+
+.sub {
+  font-family: var(--fonte-dado);
+  font-size: var(--tam-rotulo);
+  color: var(--texto-nota);
+}

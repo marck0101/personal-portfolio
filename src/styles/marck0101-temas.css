@@ -1,0 +1,121 @@
+/* ==========================================================================
+   marck0101 · contrato de temas do blog · v1 (nov 2026)
+   Fonte da verdade visual: Figma "marck0101 — Brand Identity", página 02, fig. 05
+
+   Regra de ouro: a marca é o esqueleto, o tema é a roupa.
+   - Componentes, textos, hierarquia e miniaturas NÃO mudam entre temas.
+   - Cada tema só pode redefinir os tokens abaixo. Nada de CSS solto por tema
+     fora deste arquivo.
+   - Valores dos temas "jornal" e "bbs" conferidos com o CSS real do blog
+     (blog-front/public/skins/raiz.css) em 16/11/2026. No blog o tema "bbs"
+     se chama "terminal".
+   ========================================================================== */
+
+:root,
+[data-theme="relatorio"] {
+  /* cores (papéis semânticos) */
+  --fundo: #F4F1EA;          /* fundo da página */
+  --superficie: #FFFFFF;     /* cards, caixa "Neste post" */
+  --superficie-2: #E9E4D8;   /* áreas de apoio, divisórias largas */
+  --texto: #1C2733;          /* corpo e títulos */
+  --texto-suave: #3A4756;    /* resumo, meta */
+  --texto-nota: #8A8578;     /* legendas, datas, rótulos */
+  --linha: #D8D2C4;          /* bordas e divisórias */
+  --destaque: #D9542B;       /* links, dado principal, botão. Máx. ~10% da tela */
+  --destaque-hover: #A93E1C;
+  --sobre-destaque: #FFFFFF; /* texto sobre --destaque */
+  --dado-grafico: #7A8B6F;   /* barras/linhas secundárias em gráficos */
+
+  /* tipografia */
+  --fonte-titulo: "Fraunces", Georgia, serif;
+  --fonte-texto: "IBM Plex Sans", system-ui, sans-serif;
+  --fonte-dado: "IBM Plex Mono", ui-monospace, monospace; /* todo número, data, rótulo */
+  --peso-titulo: 600;
+  --caixa-rotulo: none;      /* none | uppercase */
+
+  /* forma */
+  --raio: 8px;
+  --borda: 1px solid var(--linha);
+  --divisoria: 1px solid var(--texto);
+
+  /* slot decorativo do tema (faixa do topo). Vazio = não exibe */
+  --faixa-tema: "";
+}
+
+[data-theme="relatorio-escuro"] {
+  --fundo: #141B24;
+  --superficie: #1C2733;
+  --superficie-2: #232F3D;
+  --texto: #F4F1EA;
+  --texto-suave: #C9C4B8;
+  --texto-nota: #9A9588;
+  --linha: #2E3A48;
+  --destaque: #E8693F;       /* tijolo clareado para manter contraste AA no escuro */
+  --destaque-hover: #F08A66;
+  --sobre-destaque: #141B24;
+  --dado-grafico: #9AAB8E;
+}
+
+[data-theme="jornal"] {
+  /* valores reais do blog: blog-front/public/skins/raiz.css (html.jornal) */
+  --fundo: #F4ECD8;
+  --superficie: #F4ECD8;     /* caixas no próprio papel, separadas por fio */
+  --superficie-2: #EBE1C8;
+  --texto: #1D1A16;
+  --texto-suave: #4A4239;
+  --texto-nota: #4A4239;
+  --linha: #1D1A16;
+  --destaque: #8B1E1E;       /* bordô */
+  --destaque-hover: #6A1414;
+  --sobre-destaque: #F4ECD8;
+  --dado-grafico: #4A4239;
+
+  --fonte-titulo: "Playfair Display", Georgia, "Times New Roman", serif;
+  --fonte-texto: "Libre Caslon Text", Georgia, "Times New Roman", serif;
+  --fonte-dado: "IBM Plex Mono", ui-monospace, monospace;
+  --peso-titulo: 900;
+  --caixa-rotulo: uppercase;
+
+  --raio: 0;
+  --borda: 1px solid var(--linha);
+  --divisoria: 4px double var(--linha);
+  --faixa-tema: "Marketing · Tráfego · Desenvolvimento · Edição online";
+}
+
+[data-theme="bbs"] {
+  /* valores reais do blog: blog-front/public/skins/raiz.css (html.terminal) */
+  --fundo: #0A0F0A;
+  --superficie: #111A11;
+  --superficie-2: #111A11;
+  --texto: #B8E6C1;          /* verde suave: o neon cansa na leitura */
+  --texto-suave: #9BD8A8;
+  --texto-nota: #4CC768;
+  --linha: #4CC768;
+  --destaque: #FFCF5C;       /* âmbar: títulos e links */
+  --destaque-hover: #FFE08F;
+  --sobre-destaque: #0A0F0A;
+  --dado-grafico: #6DFF8A;   /* neon: logo, menu, cursor */
+
+  --fonte-titulo: "VT323", "IBM Plex Mono", monospace;
+  --fonte-texto: "IBM Plex Mono", ui-monospace, monospace;
+  --fonte-dado: "IBM Plex Mono", ui-monospace, monospace;
+  --peso-titulo: 400;
+  --caixa-rotulo: uppercase;
+
+  --raio: 0;
+  --borda: 1px dashed var(--linha);
+  --divisoria: 1px dashed var(--linha);
+  --faixa-tema: "Conectado a 33.600 bps · Nó 1 · marck0101 BBS";
+}
+
+/* --------------------------------------------------------------------------
+   Uso nos componentes (exemplos): os componentes só leem tokens.
+   -------------------------------------------------------------------------- */
+body        { background: var(--fundo); color: var(--texto); font-family: var(--fonte-texto); }
+h1, h2, h3  { font-family: var(--fonte-titulo); font-weight: var(--peso-titulo); }
+a           { color: var(--destaque); }
+a:hover     { color: var(--destaque-hover); }
+.meta, time, .rotulo, .dado { font-family: var(--fonte-dado); color: var(--texto-nota); text-transform: var(--caixa-rotulo); }
+.card, .toc { background: var(--superficie); border: var(--borda); border-radius: var(--raio); }
+.btn-primario { background: var(--destaque); color: var(--sobre-destaque); border-radius: var(--raio); }
+.faixa-tema::before { content: var(--faixa-tema); font-family: var(--fonte-dado); }

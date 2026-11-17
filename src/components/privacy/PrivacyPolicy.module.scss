@@ -1,18 +1,17 @@
-@import "../../variables.modules";
-
 .modal {
-  border: none;
-  border-radius: 12px;
+  border: var(--borda);
+  border-radius: var(--raio);
   padding: 0;
-  width: 90vw;
+  width: calc(100vw - 2rem);
   max-width: 680px;
   max-height: 85vh;
   overflow: hidden;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+  margin: auto;
+  background: var(--superficie);
+  color: var(--texto);
 
   &::backdrop {
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(2px);
+    background: rgba(20, 27, 36, 0.6); /* tinta escura translúcida */
   }
 }
 
@@ -21,8 +20,6 @@
   flex-direction: column;
   height: 100%;
   max-height: 85vh;
-  background-color: $white;
-  color: $dark;
 }
 
 .header {
@@ -30,13 +27,11 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.25rem 1.5rem;
-  border-bottom: 1px solid $lightgray;
+  border-bottom: var(--divisoria);
   flex-shrink: 0;
 
   h2 {
-    margin: 0;
-    font-size: 1.25rem;
-    color: $purple;
+    font-size: var(--tam-titulo-2);
   }
 }
 
@@ -44,18 +39,27 @@
   padding: 1.5rem;
   overflow-y: auto;
   flex: 1;
-  font-size: 0.9rem;
+  font-size: var(--tam-pequeno);
   line-height: 1.7;
+  color: var(--texto-suave);
+
+  p {
+    margin-bottom: 0.75rem;
+  }
+
+  strong {
+    color: var(--texto);
+    font-weight: 500;
+  }
 
   h3 {
     font-size: 1rem;
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: $purple;
+    margin: 1.5rem 0 0.5rem;
   }
 
   ul {
     padding-left: 1.25rem;
+    list-style: disc;
 
     li {
       margin-bottom: 0.5rem;
@@ -63,18 +67,14 @@
   }
 
   a {
-    color: $purple;
     text-decoration: underline;
-
-    &:hover {
-      color: $pink;
-    }
+    text-underline-offset: 2px;
   }
 }
 
 .footer {
   padding: 1rem 1.5rem;
-  border-top: 1px solid $lightgray;
+  border-top: var(--borda);
   display: flex;
   justify-content: flex-end;
   flex-shrink: 0;
@@ -84,29 +84,11 @@
   background: none;
   border: none;
   font-size: 1.25rem;
-  cursor: pointer;
-  color: $dark;
+  color: var(--texto-suave);
   padding: 0.25rem 0.5rem;
-  transition: $transition;
+  transition: color var(--transicao);
 
   &:hover {
-    color: $purple;
-  }
-}
-
-.closeBtn2 {
-  padding: 0.5rem 1.5rem;
-  border: 2px solid $purple;
-  border-radius: 6px;
-  background-color: $purple;
-  color: $white;
-  font-size: 0.875rem;
-  cursor: pointer;
-  font-weight: 600;
-  transition: $transition;
-
-  &:hover {
-    background-color: $pink;
-    border-color: $pink;
+    color: var(--destaque);
   }
 }

@@ -1,12 +1,9 @@
 import React from "react";
 import PortfolioBlock from "./PortfolioBlock";
 import { info } from "../../info/Info";
-import { BsCodeSlash } from "react-icons/bs";
 import { Helmet } from "react-helmet-async";
 import Style from "./Portfolio.module.scss";
-import SrOnlyHeading from "../SrOnlyHeading";
 import ServiceLinks from "../services/ServiceLinks";
-import { Box } from "@mui/material";
 
 export default function Portfolio() {
   return (
@@ -16,27 +13,26 @@ export default function Portfolio() {
         <meta name="description" content="Projetos de Marcos Henrique Corrêa: sites institucionais, dashboard de marketing integrado (Meta Ads, Google Ads, LinkedIn), blog e apps React. Veja as demos ao vivo." />
         <link rel="canonical" href="https://marck0101.com.br/portfolio" />
       </Helmet>
-      <SrOnlyHeading>Portfólio de projetos de Marcos Henrique Corrêa</SrOnlyHeading>
-      <Box mt={"2rem"} px={"1rem"}>
-        <ServiceLinks title={"Veja também minhas áreas de atuação"} />
-      </Box>
-      <div className={Style.grid}>
-        {info.portfolio.map((project, index) => (
-          <div key={index}>
-            <PortfolioBlock
-              image={project.image}
-              live={project.live}
-              source={project.source}
-              title={project.title}
-              description={project.description}
-            />
-          </div>
-        ))}
-        <div className={Style.wip}>
-          <h2>Ainda em desenvolvimento!</h2>
-          <BsCodeSlash size={30} />
+      <main className="pagina">
+        <header className="cabecalho">
+          <p className="rotulo">portfólio · {info.portfolio.length} projetos</p>
+          <h1>Projetos de {info.fullName}</h1>
+          <p className="apoio">
+            Sites, sistemas e dashboards que fiz para clientes e para mim. Onde o projeto está no ar, o link leva até ele.
+          </p>
+        </header>
+
+        <div className={Style.grid}>
+          {info.portfolio.map((project, index) => (
+            <PortfolioBlock key={project.title} index={index + 1} {...project} />
+          ))}
         </div>
-      </div>
+        <p className={`rotulo ${Style.wip}`}>Mais projetos em andamento.</p>
+
+        <div className={Style.servicos}>
+          <ServiceLinks title={"Minhas áreas de atuação"} />
+        </div>
+      </main>
     </>
   );
 }

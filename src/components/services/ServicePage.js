@@ -1,5 +1,4 @@
 import React from "react";
-import { Box } from "@mui/material";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { FaWhatsapp, FaLinkedin, FaEnvelope } from "react-icons/fa";
@@ -47,17 +46,18 @@ export default function ServicePage({ service }) {
         <script type="application/ld+json">{JSON.stringify(pageSchema(service))}</script>
       </Helmet>
 
-      <Box component={"main"} className={Style.page}>
-        <header className={Style.hero}>
+      <main className={`pagina ${Style.page}`}>
+        <header className="cabecalho">
+          <p className="rotulo">
+            <Link to="/" className={Style.crumb}>início</Link> / {service.eyebrow.toLowerCase()}
+          </p>
           {/* O h1 traz nome + profissão: é exatamente o que se busca no Google */}
           <h1 className={Style.title}>
-            <span style={{ background: info.gradient, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-              {info.fullName}
-            </span>
+            {info.fullName}
             <span className={Style.titleRole}> — {service.eyebrow}</span>
           </h1>
           <p className={Style.tagline}>{service.title}</p>
-          <p className={Style.lead}>{service.lead}</p>
+          <p className="apoio">{service.lead}</p>
         </header>
 
         <section className={Style.grid}>
@@ -79,8 +79,8 @@ export default function ServicePage({ service }) {
             <div className={Style.results}>
               {service.results.items.map((r) => (
                 <div key={r.segment} className={Style.result}>
-                  <span className={Style.resultSegment}>{r.segment}</span>
-                  <strong className={Style.resultValue}>{r.value}</strong>
+                  <span className="rotulo">{r.segment}</span>
+                  <strong className={`dado ${Style.resultValue}`}>{r.value}</strong>
                   <span className={Style.resultDetail}>{r.detail}</span>
                 </div>
               ))}
@@ -124,19 +124,20 @@ export default function ServicePage({ service }) {
         )}
 
         <section className={`${Style.block} ${Style.cta}`}>
-          <h2 className={Style.blockTitle}>Vamos conversar?</h2>
+          <h2 className={Style.blockTitle}>Quer conversar sobre o seu caso?</h2>
+          <p className={Style.ctaText}>Respondo por WhatsApp, e-mail ou LinkedIn.</p>
           <div className={Style.ctaButtons}>
             {whatsapp && (
-              <a href={whatsapp} target="_blank" rel="noopener noreferrer" className={Style.button}>
-                <FaWhatsapp /> WhatsApp
+              <a href={whatsapp} target="_blank" rel="noopener noreferrer" className="btn-primario">
+                <FaWhatsapp aria-hidden="true" /> WhatsApp
               </a>
             )}
-            <a href="mailto:marck.mhc@gmail.com" className={Style.button}>
-              <FaEnvelope /> E-mail
+            <a href={`mailto:${info.email}`} className="btn-secundario">
+              <FaEnvelope aria-hidden="true" /> E-mail
             </a>
             {linkedin && (
-              <a href={linkedin} target="_blank" rel="noopener noreferrer" className={Style.button}>
-                <FaLinkedin /> LinkedIn
+              <a href={linkedin} target="_blank" rel="noopener noreferrer" className="btn-secundario">
+                <FaLinkedin aria-hidden="true" /> LinkedIn
               </a>
             )}
           </div>
@@ -149,7 +150,7 @@ export default function ServicePage({ service }) {
             </a>
           </div>
         </section>
-      </Box>
+      </main>
     </>
   );
 }

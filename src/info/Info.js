@@ -3,42 +3,38 @@ import TaisImg     from '../img/taismuller-arquiteta.png'
 import DashImg     from '../img/sistema-dash-gh.png'
 import BlogImg     from '../img/blog-marcos.png'
 import VetImg      from '../img/veterinaria-tamires.png'
-import ToDoListImg from '../img/ToDoList.png'
+// import ToDoListImg from '../img/ToDoList.png' // projeto oculto (ver portfolio)
 import NoiteADoisImg from '../img/noite-a-dois.png'
-
-export let colors = ['rgb(0,255,164)', 'rgb(166,104,255)']
+import NextMoviesImg from '../img/next-movies.png'
 
 export const info = {
-  firstName: ' Marcos',
-  lastName: 'Henrique',
   fullName: 'Marcos Henrique Corrêa',
   photo: '/marcos-henrique-correa.webp', // public/ — URL estável usada no preload e no JSON-LD
   blogUrl: 'https://blog.marck0101.com.br/blog',
-  initials: 'Js',
-  position: 'Programador Full Stack & Gestor de Tráfego',
-  gradient: `-webkit-linear-gradient(135deg, ${colors})`,
-  baseColor: colors[0],
+  githubUrl: 'https://github.com/marck0101',
+  email: 'marck.mhc@gmail.com',
+  location: 'Santo Cristo, RS',
+  position: 'Programador full stack e gestor de tráfego',
+  // Assinatura e posicionamento: blog/_marca/BRAND.md §1 (cópia em docs/marca/BRAND.md)
+  tagline: 'O básico, bem feito e medido.',
+  lead:
+    'Sou profissional de marketing e também desenvolvedor. Junto tráfego pago, SEO e tracking com dados e automação, para que cada real investido seja medido. Sem pacote fechado e sem método mágico.',
   miniBio: [
     {
-      link: '/programador',
-      emoji: '💻',
-      text: 'Programador full stack: React, Node.js e integrações.',
+      link: '/gestor-de-trafego',
+      text: 'Tráfego pago no Google Ads, Meta Ads e LinkedIn Ads, com o tracking conferido antes do primeiro real.',
     },
     {
-      link: '/gestor-de-trafego',
-      emoji: '📈',
-      text: 'Gestor de tráfego: Google Ads, Meta Ads e LinkedIn Ads.',
+      link: '/programador',
+      text: 'Sites, sistemas e dashboards em React e Node.js, prontos para ser encontrados e medidos.',
     },
     {
       link: 'https://blog.marck0101.com.br/blog',
-      emoji: '📝',
-      text: 'Escrevo no blog sobre marketing e tecnologia.',
+      text: 'No blog eu mostro o processo: o que funcionou, o que não funcionou e os números.',
     },
     {
-      link: "mailto:marck.mhc@gmail.com?subject=Let's work on something together!",
-      emoji: '✉️',
-      text: 'Entre em contato comigo!',
-      // text: "let's get in touch!",
+      link: 'mailto:marck.mhc@gmail.com?subject=Contato%20pelo%20portf%C3%B3lio',
+      text: 'Quer conversar sobre o seu caso? Me mande um e-mail.',
     },
   ],
 
@@ -59,7 +55,18 @@ export const info = {
       label: 'LinkedIn',
     },
   ],
-  bio: `Olá! Eu sou Marcos, programador full stack e gestor de tráfego de Santo Cristo, RS. Trabalho com React, Node.js e campanhas de Google Ads, Meta Ads e LinkedIn Ads, transformando ideias em produtos web reais e campanhas que convertem.`,
+  bio: [
+    'Sou Marcos Henrique Corrêa, de Santo Cristo, no noroeste do RS. Trabalho com marketing e com código: gestão de tráfego no Google Ads, Meta Ads e LinkedIn Ads, e desenvolvimento web em React e Node.js.',
+    'Uso as duas coisas juntas. Antes de subir uma campanha, confiro se o pixel conta certo. Depois, monto o relatório que mostra o que trouxe resultado e o que não trouxe, com a fonte de cada número.',
+    'Atendo principalmente pequenas e médias empresas que já investem em mídia e conteúdo, mas ainda não sabem o que realmente funciona. Também ajudo agências e times que precisam de tracking, dashboards e automação.',
+  ],
+  // Pilares da marca (BRAND.md §2)
+  pillars: [
+    { title: 'Medir antes de escalar', text: 'Tracking configurado antes do primeiro real em mídia.' },
+    { title: 'O básico bem feito', text: 'Site rápido, pixel certo, campanha bem estruturada.' },
+    { title: 'Engenharia no marketing', text: 'Automação, dashboards e benchmarks feitos com código.' },
+    { title: 'Números na mesa', text: 'Mostro o que funcionou e o que não funcionou, com a fonte.' },
+  ],
 
   // Páginas de serviço (/gestor-de-trafego e /programador) — renderizadas por components/services/ServicePage.js
   services: {
@@ -69,9 +76,9 @@ export const info = {
       seoDescription:
         'Marcos Henrique Corrêa, gestor de tráfego pago com mais de 3 anos em Google Ads, Meta Ads e LinkedIn Ads. Campanhas, rastreamento (GTM, CAPI) e dashboards com resultados reais.',
       eyebrow: 'Gestor de Tráfego',
-      title: 'Gestor de tráfego que também entende a tecnologia por trás das campanhas',
+      title: 'Gestor de tráfego que também é desenvolvedor: cuido da campanha e de como ela é medida.',
       lead:
-        'Sou Marcos Henrique Corrêa, gestor de tráfego pago com mais de 3 anos de experiência em Google Ads, Meta Ads e LinkedIn Ads, atuando em carteiras multisegmento. Como também sou programador, cuido da campanha e da estrutura que mede o resultado: rastreamento, integrações e dashboards.',
+        'Sou Marcos Henrique Corrêa, gestor de tráfego pago com mais de 3 anos de experiência em Google Ads, Meta Ads e LinkedIn Ads, atuando em carteiras multisegmento. Antes de subir a campanha, confiro se o rastreamento conta certo. Depois, monto o dashboard que mostra o resultado.',
       sections: [
         {
           title: 'Plataformas e campanhas',
@@ -102,13 +109,15 @@ export const info = {
       ],
       results: {
         title: 'Resultados',
-        note: 'Portfólio Google Ads: mais de R$ 400 mil investidos em 17 meses, 5 contas simultâneas.',
+        // Só métricas de eficiência (ROAS/CPA). Receita, verba e volume absolutos
+        // ficam de fora: sem o tamanho da conta e o período, parecem baixos.
+        note: 'Fonte: contas de Google Ads que gerenciei, 5 ao mesmo tempo, ao longo de 17 meses.',
         items: [
-          { segment: 'Turismo e agenciamento', value: 'R$ 956 mil+ em receita atribuída', detail: 'ROAS ~35x · CPA R$ 3,70 · +7.300 conversões' },
-          { segment: 'E-commerce fitness', value: 'R$ 888 mil+ em receita', detail: 'ROAS de 17x e 18,7x por linha de produto' },
-          { segment: 'Hotelaria de luxo (5 estrelas)', value: 'R$ 393 mil em receita', detail: 'ROAS global 7,4x · Hotel Ads 83x' },
-          { segment: 'Tecnologia B2B (ERP)', value: '238 leads qualificados', detail: 'CPA R$ 468 · budget de R$ 111 mil' },
-          { segment: 'Crédito rural', value: '199 conversões', detail: 'CPA R$ 125 · funil Search + Demand Gen' },
+          { segment: 'Turismo e agenciamento', value: 'ROAS de ~35x', detail: 'CPA de R$ 3,70' },
+          { segment: 'E-commerce fitness', value: 'ROAS de 17x a 18,7x', detail: 'conforme a linha de produto' },
+          { segment: 'Hotelaria de luxo (5 estrelas)', value: 'ROAS global de 7,4x', detail: 'Hotel Ads com ROAS de 83x' },
+          { segment: 'Tecnologia B2B (ERP)', value: 'CPA de R$ 468', detail: 'por lead qualificado' },
+          { segment: 'Crédito rural', value: 'CPA de R$ 125', detail: 'funil Search + Demand Gen' },
         ],
       },
       certifications: [
@@ -127,9 +136,9 @@ export const info = {
       seoDescription:
         'Marcos Henrique Corrêa, programador full stack: sites, sistemas web, integrações com APIs e dashboards em React, Node.js, TypeScript, PostgreSQL e MongoDB.',
       eyebrow: 'Programador Full Stack',
-      title: 'Programador full stack que desenvolve pensando em resultado',
+      title: 'Programador full stack que entende de marketing: sites e sistemas prontos para ser encontrados e medidos.',
       lead:
-        'Sou Marcos Henrique Corrêa, programador full stack. Desenvolvo sites, sistemas web e integrações com JavaScript, TypeScript, React e Node.js. Por atuar também com tráfego pago, construo produtos preparados para ser encontrados, medidos e convertidos.',
+        'Sou Marcos Henrique Corrêa, programador full stack. Desenvolvo sites, sistemas web e integrações com JavaScript, TypeScript, React e Node.js. Como também trabalho com tráfego pago, entrego o site com SEO técnico e tracking configurados desde o primeiro dia.',
       sections: [
         {
           title: 'O que eu desenvolvo',
@@ -167,87 +176,71 @@ export const info = {
       article: { href: 'https://github.com/marck0101', text: 'Meu GitHub' },
     },
   },
-  skills: {
-    proficientWith: [
-      'JavaScript',
-      'React',
-      'HTML5',
-      'CSS3',
-      'Bootstrap',
-      'Material UI',
-      'Sass',
-      'Scss Modules',
-      'Git',
-      'Github',
-      'npm',
-      'API Requests',
-      'JSON',
-      'Next',
-      'Tailwind',
-    ],
-    exposedTo: ['Nodejs', 'Java', 'Express', 'Firebase', 'Figma'],
-  },
-  hobbies: [
+  skills: [
     {
-      label: 'Musicas',
-      // label: "musics",
-      // link:'https://open.spotify.com/playlist/3dn8NwizdGBWWIMyqym34j?si=2285ee63bfc446db',
-      emoji: '🎸',
+      title: 'Marketing e dados',
+      items: ['Google Ads', 'Meta Ads', 'LinkedIn Ads', 'Google Tag Manager', 'GA4', 'Meta Pixel e CAPI', 'Looker Studio'],
     },
     {
-      label: 'Leitura',
-      emoji: '📖',
+      title: 'Desenvolvimento',
+      items: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'Firebase', 'Tailwind', 'Sass', 'Git'],
     },
-    // {
-    //   label: "Musculação",
-    //   emoji: "💪🏻",
-    // },
     {
-      label: 'Filmes',
-      emoji: '🎥',
+      title: 'Já usei em projeto',
+      items: ['PHP', 'WordPress', 'Java', 'Bootstrap', 'Material UI', 'Figma'],
     },
   ],
+  hobbies: 'Fora do trabalho: música, leitura e filmes.',
   portfolio: [
     {
       title: 'Taís Regina Müller — Arquiteta',
       description: 'Site para escritório de arquitetura com foco em neuroarquitetura. Portfólio de obras, etapas do processo e formulário de contato. GTM implementado.',
       live: 'https://taismuller-arquiteta.netlify.app',
+      stack: ['HTML', 'Tailwind', 'GTM'],
       image: TaisImg,
     },
     {
       title: 'Noite a Dois',
       description: 'Jogo web de verdade ou desafio para casais (+18) com 4 níveis, cronômetros e cartas personalizáveis. HTML, CSS e JavaScript puros, sem coleta de dados.',
       live: 'https://noite-a-dois.marck0101.com.br/',
+      stack: ['HTML', 'CSS', 'JavaScript'],
       image: NoiteADoisImg,
     },
     {
       title: 'Dashboard de Marketing Integrado',
-      description: 'Painel custom conectando APIs do Meta Ads, Google Ads e LinkedIn. Eliminou ferramentas pagas de BI. Construído com React e PostgreSQL.',
+      description: 'Painel próprio que junta as APIs do Meta Ads, Google Ads e LinkedIn. Substituiu ferramentas pagas de BI.',
+      stack: ['React', 'Node.js', 'PostgreSQL'],
       image: DashImg,
     },
     {
       title: 'Blog — Marcos Henrique Corrêa',
       description: 'Blog pessoal com conteúdo sobre desenvolvimento, marketing digital e gestão de tráfego pago.',
       live: 'https://blog.marck0101.com.br/blog',
+      stack: ['React', 'Node.js', 'MongoDB'],
       image: BlogImg,
     },
     {
       title: 'Site Institucional + Blog — Veterinária Tamires',
       description: 'Site e blog para médica veterinária com foco em conteúdo educativo e autoridade. PHP, MySQL e hospedagem InfinityFree.',
       live: 'https://veterinariatamires.lovestoblog.com',
+      stack: ['PHP', 'MySQL', 'WordPress'],
       image: VetImg,
     },
     {
       title: 'Next Movies',
-      description: 'Listagem de filmes em cartaz com consumo de API REST externa e hooks avançados do React em produção.',
+      description: 'Catálogo de filmes com filtro por período, gênero e nota. Capas com duração, direção e classificação; trailer, elenco e onde assistir.',
       live: 'https://filmes-lancamentos-atualizados.netlify.app',
-      image: null,
+      stack: ['React', 'API do TMDB'],
+      image: NextMoviesImg,
     },
-    {
-      title: 'Lista de Tarefas com Autenticação',
-      description: 'Gerenciador de tarefas com login/logout e persistência via Firebase Firestore. Dados isolados por usuário.',
-      live: 'https://atual-lista-tarefas.netlify.app',
-      image: ToDoListImg,
-    },
+    // Oculto em 16/11/2026. Para voltar: descomentar este bloco e o import do
+    // ToDoListImg, e devolver o item no JSON-LD e no <noscript> do public/index.html.
+    // {
+    //   title: 'Lista de Tarefas com Autenticação',
+    //   description: 'Gerenciador de tarefas com login/logout e persistência via Firebase Firestore. Dados isolados por usuário.',
+    //   live: 'https://atual-lista-tarefas.netlify.app',
+    //   stack: ['React', 'Firebase'],
+    //   image: ToDoListImg,
+    // },
   ],
 }

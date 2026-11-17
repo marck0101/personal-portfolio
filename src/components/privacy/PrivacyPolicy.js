@@ -88,7 +88,7 @@ export default function PrivacyPolicy() {
         </div>
 
         <div className={Style.footer}>
-          <button className={Style.closeBtn2} onClick={close}>
+          <button className="btn-primario" onClick={close}>
             Fechar
           </button>
         </div>

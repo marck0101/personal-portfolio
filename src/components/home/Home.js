@@ -1,9 +1,7 @@
 import React from "react";
 import Style from "./Home.module.scss";
-import classNames from "classnames";
-import EmojiBullet from "./EmojiBullet";
+import BioItem from "./BioItem";
 import SocialIcon from "./SocialIcon";
-import { Box } from "@mui/material";
 import { info } from "../../info/Info";
 import { Helmet } from "react-helmet-async";
 import ServiceLinks from "../services/ServiceLinks";
@@ -16,77 +14,51 @@ export default function Home() {
         <meta name="description" content="Marcos Henrique Corrêa, programador full stack e gestor de tráfego (Google Ads, Meta Ads e LinkedIn Ads) em Santo Cristo, RS. React, Node.js, campanhas e rastreamento. Veja portfólio e blog." />
         <link rel="canonical" href="https://marck0101.com.br/" />
       </Helmet>
-    <Box
-      component={"main"}
-      display={"flex"}
-      flexDirection={{ xs: "column", md: "row" }}
-      alignItems={"center"}
-      justifyContent={"center"}
-      minHeight={"calc(100vh - 175px)"}
-    >
-      <Box
-        className={classNames(Style.avatar, Style.shadowed)}
-        style={{ background: info.gradient }}
-        width={{ xs: "35vh", md: "40vh" }}
-        height={{ xs: "35vh", md: "40vh" }}
-        borderRadius={"50%"}
-        p={"0.75rem"}
-        mb={{ xs: "1rem", sm: 0 }}
-        mr={{ xs: 0, md: "2rem" }}
-        overflow={"hidden"}
-        flexShrink={0}
-      >
-        <img
-          src={info.photo}
-          alt={info.fullName}
-          width="600"
-          height="600"
-          fetchpriority="high"
-          style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "50%" }}
-        />
-      </Box>
-      <Box>
-        <h1>
-          Olá, me chamo
-          <span
-            style={{
-              background: info.gradient,
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-          >
-            {" "}{info.fullName}
-          </span>
-          <span className={Style.hand}>🤚</span>
-        </h1>
-        <h2>Sou {info.position}.</h2>
-        <Box component={"ul"} p={"0.8rem"}>
-          {info.miniBio.map((bio, index) => (
-            <li key={index}>
-              <EmojiBullet emoji={bio.emoji} text={bio.text} link={bio.link} />
-            </li>
-          ))}
-        </Box>
-        <Box px={"0.8rem"} mb={"1.5rem"}>
-          <ServiceLinks align={"start"} />
-        </Box>
-        <Box
-          display={"flex"}
-          gap={"1.5rem"}
-          justifyContent={"center"}
-          fontSize={{ xs: "2rem", md: "2.5rem" }}
-        >
-          {info.socials.map((social, index) => (
-            <SocialIcon
-              key={index}
-              link={social.link}
-              icon={social.icon}
-              label={social.label}
-            />
-          ))}
-        </Box>
-      </Box>
-    </Box>
+      <main className={`pagina ${Style.hero}`}>
+        <figure className={Style.foto}>
+          <img
+            src={info.photo}
+            alt={info.fullName}
+            width="600"
+            height="600"
+            fetchpriority="high"
+          />
+          <figcaption className="rotulo">
+            fig. 01 · {info.fullName}, {info.location}
+          </figcaption>
+        </figure>
+
+        <div className={Style.texto}>
+          <p className="rotulo">marketing medido · {info.location}</p>
+          <h1 className={Style.nome}>{info.fullName}</h1>
+          <h2 className={Style.cargo}>{info.position}.</h2>
+          <p className={Style.lead}>
+            {info.lead} <strong>{info.tagline}</strong>
+          </p>
+
+          <ol className={Style.lista}>
+            {info.miniBio.map((bio, index) => (
+              <li key={bio.link}>
+                <BioItem index={index + 1} text={bio.text} link={bio.link} />
+              </li>
+            ))}
+          </ol>
+
+          <div className={Style.acoes}>
+            <ServiceLinks align={"start"} />
+            <div className={Style.sociais}>
+              {info.socials.map((social) => (
+                <SocialIcon
+                  key={social.label}
+                  link={social.link}
+                  icon={social.icon}
+                  label={social.label}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </main>
     </>
   );
 }

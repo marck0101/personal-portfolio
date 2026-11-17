@@ -1,0 +1,33 @@
+.item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  padding: 0.7rem 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--texto);
+}
+
+a.item:hover {
+  color: var(--texto);
+
+  .seta,
+  .num {
+    color: var(--destaque);
+  }
+}
+
+.num {
+  font-size: var(--tam-dado);
+  color: var(--texto-nota);
+  transition: color var(--transicao);
+}
+
+.texto {
+  flex: 1;
+}
+
+.seta {
+  color: var(--texto-nota);
+  transition: color var(--transicao);
+}

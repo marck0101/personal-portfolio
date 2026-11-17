@@ -1,19 +1,21 @@
-@import "../../variables.modules";
-
 .banner {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 9999;
-  background-color: $dark;
-  color: $white;
-  padding: 1rem 1.5rem;
-  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.4);
+  background: var(--superficie);
+  color: var(--texto);
+  border-top: var(--divisoria);
+  padding: 1rem;
+
+  @media (min-width: 768px) {
+    padding: 1rem 1.5rem;
+  }
 }
 
 .content {
-  max-width: 900px;
+  max-width: var(--largura);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -23,27 +25,28 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    gap: 1.5rem;
   }
 }
 
 .text {
-  font-size: 0.875rem;
-  line-height: 1.5;
-  margin: 0;
+  font-size: var(--tam-pequeno);
+  line-height: 1.55;
+  color: var(--texto-suave);
   flex: 1;
 }
 
 .policyLink {
   background: none;
   border: none;
-  color: $purple;
-  cursor: pointer;
+  color: var(--destaque);
   font-size: inherit;
   padding: 0;
   text-decoration: underline;
+  text-underline-offset: 2px;
 
   &:hover {
-    color: $pink;
+    color: var(--destaque-hover);
   }
 }
 
@@ -51,36 +54,9 @@
   display: flex;
   gap: 0.75rem;
   flex-shrink: 0;
-}
 
-.btnEssential {
-  padding: 0.5rem 1rem;
-  border: 2px solid $white;
-  border-radius: 6px;
-  background: transparent;
-  color: $white;
-  font-size: 0.875rem;
-  cursor: pointer;
-  transition: $transition;
-
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-}
-
-.btnAccept {
-  padding: 0.5rem 1rem;
-  border: 2px solid $purple;
-  border-radius: 6px;
-  background-color: $purple;
-  color: $white;
-  font-size: 0.875rem;
-  cursor: pointer;
-  font-weight: 600;
-  transition: $transition;
-
-  &:hover {
-    background-color: $pink;
-    border-color: $pink;
+  button {
+    font-size: var(--tam-pequeno);
+    padding: 0.55rem 1rem;
   }
 }
