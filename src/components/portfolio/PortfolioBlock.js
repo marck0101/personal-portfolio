@@ -2,7 +2,7 @@ import React from "react";
 import { FaRegImage } from "react-icons/fa";
 import Style from "./PortfolioBlock.module.scss";
 
-function PortfolioBlock({ index, image, live, source, title, description, stack = [] }) {
+function PortfolioBlock({ index, image, live, source, encerrado, title, description, stack = [] }) {
   const fig = `fig. ${String(index).padStart(2, "0")}`;
 
   return (
@@ -44,7 +44,8 @@ function PortfolioBlock({ index, image, live, source, title, description, stack 
               Ver o código ↗
             </a>
           )}
-          {!live && !source && <span className={Style.semLink}>Projeto interno, sem link público.</span>}
+          {encerrado && <span className={Style.semLink}>{encerrado}</span>}
+          {!live && !source && !encerrado && <span className={Style.semLink}>Projeto interno, sem link público.</span>}
         </div>
       </div>
     </article>
