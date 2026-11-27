@@ -80,8 +80,8 @@ src/
 ├── img/                            # Imagens estáticas
 └── components/
     ├── BaseLayout.js               # Shell: tema + Navbar + Routes + Footer + CookieBanner + PrivacyPolicy
-    ├── Navbar.js                   # Logo + Início, Sobre, Portfólio, Blog + Toggler
-    ├── Footer.js                   # Logo com subtítulo, assinatura, links, política de privacidade, ©
+    ├── Navbar.js                   # Logo + Início, Sobre, Portfólio, Blog, Serviços (link externo `servicosUrl`) + Toggler
+    ├── Footer.js                   # Logo com subtítulo, assinatura, links (inclui "Serviços para negócios locais"), política de privacidade, ©
     ├── Logo.js                     # Símbolo "m" (export Simbolo) + marck0101
     ├── SkinToggle.js               # Menu de estilo: Visual atual / Jornal / Terminal
     ├── NotFound.js                 # 404 com noindex
@@ -321,3 +321,4 @@ Claude Code edita → `git add` + `git commit` + `git push origin main` → Netl
 | 2026-11-17 | Projeto JB Imobiliária adicionado (2º card, print do site novo, JSON-LD e noscript) |
 | 2026-11-17 | SEO/GEO para IAs: textos movidos para `src/info/conteudo.json`; `scripts/pos-build.js` gera HTML próprio por rota (title, canonical, OG, JSON-LD, `<noscript>` com o conteúdo), `sitemap.xml` com lastmod e `llms.txt`; `robots.txt` com bots de IA; `public/sitemap.xml` estático removido |
 | 2026-11-27 | JB Imobiliária e Veterinária Tamires saíram do ar: link "live" removido (card, destaque da home, JSON-LD, noscript e llms.txt); novo campo `encerrado` mostra "Site fora do ar" no card; imagem e descrição mantidas como registro |
+| 2026-11-27 | Link "Serviços" (https://servicos.marck0101.com.br, `servicosUrl` no JSON) na Navbar, no rodapé, no `<noscript>` e no llms.txt; `sameAs` do Person padronizado (LinkedIn, GitHub, blog, serviços); `/llm.txt` redireciona 301 para `/llms.txt` (`public/_redirects`, Netlify). |

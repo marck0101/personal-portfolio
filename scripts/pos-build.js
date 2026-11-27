@@ -47,7 +47,7 @@ function htmlProjetos() {
     .join("")}</ul>`;
 }
 
-const navegacao = `<p><a href="/">Início</a> · <a href="/about">Sobre</a> · <a href="/portfolio">Portfólio</a> · <a href="/gestor-de-trafego">Gestor de tráfego</a> · <a href="/programador">Programador</a> · <a href="${esc(C.blogUrl)}">Blog</a></p>`;
+const navegacao = `<p><a href="/">Início</a> · <a href="/about">Sobre</a> · <a href="/portfolio">Portfólio</a> · <a href="/gestor-de-trafego">Gestor de tráfego</a> · <a href="/programador">Programador</a> · <a href="${esc(C.blogUrl)}">Blog</a> · <a href="${esc(C.servicosUrl)}">Serviços</a></p>`;
 const contato = `<h2>Contato</h2><p>E-mail: <a href="mailto:${esc(C.email)}">${esc(C.email)}</a> · WhatsApp: <a href="https://wa.me/${C.whatsapp}">${esc(C.telefoneExibicao)}</a> · <a href="${esc(C.linkedinUrl)}">LinkedIn</a> · <a href="${esc(C.githubUrl)}">GitHub</a></p>`;
 
 function htmlServico(s) {
@@ -237,6 +237,7 @@ const llms = `# ${C.fullName}
 - LinkedIn: ${C.linkedinUrl}
 - GitHub: ${C.githubUrl}
 - Blog: ${C.blogUrl}
+- Serviços: ${C.servicosUrl} (catálogo de serviços de tráfego pago e mensuração para negócios locais, com escopo e formato de cada oferta)
 
 ## Como trabalho
 
@@ -280,6 +281,7 @@ ${C.bio.join("\n\n")}
 - [Gestor de tráfego](${SITE}${t.path})
 - [Programador full stack](${SITE}${p.path})
 - [Blog](${C.blogUrl})
+- [Serviços para negócios locais (catálogo)](${C.servicosUrl})
 `;
 fs.writeFileSync(path.join(BUILD, "llms.txt"), llms);
 
