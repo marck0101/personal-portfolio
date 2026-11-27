@@ -272,7 +272,7 @@ img-port.png, img-port-light.png
 - [x] `CookieBanner` criado (`src/components/cookies/`) — aceita todos ou só essenciais, salva em localStorage
 - [x] `PrivacyPolicy` criado (`src/components/privacy/`) — modal `<dialog>` com conteúdo completo LGPD
 - [x] Clarity condicionado ao consentimento (`cookieConsent === "all"`)
-- [x] GTM mantido com Consent Mode v2 (defaults: denied) — LGPD-compliant sem bloquear o framework
+- [x] GTM só carrega após "Aceitar todos" (27/11/2026: a tag do Pixel no GTM disparava sem consentimento mesmo com Consent Mode negado); Consent Mode v2 segue como default denied
 - [x] Meta Pixel standalone removido do `index.html` — já disparado pelas tags do próprio GTM (`facebook all pages`/`facebook Lead`), evitando double-tracking
 - [x] `window.enableAnalytics()` exposto para ativar analytics após consentimento React
 
