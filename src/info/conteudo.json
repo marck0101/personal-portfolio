@@ -141,7 +141,7 @@
         "title": "Alguns projetos",
         "items": [
           { "name": "Blog com painel administrativo próprio", "detail": "React, Node.js, Express e MongoDB, com pré-renderização para SEO.", "href": "https://blog.marck0101.com.br/blog" },
-          { "name": "Site da JB Imobiliária", "detail": "Next.js e TypeScript: vitrine com filtros, página por imóvel e SEO local.", "href": "https://front-jb-imobiliaria.vercel.app" },
+          { "name": "Site da JB Imobiliária", "detail": "Next.js e TypeScript: vitrine com filtros, página por imóvel e SEO local (site fora do ar)." },
           { "name": "Dashboard de Marketing Integrado", "detail": "APIs de Meta Ads, Google Ads e LinkedIn em um painel React + PostgreSQL." },
           { "name": "Site da arquiteta Taís Regina Müller", "detail": "Site institucional com SEO local por cidade, performance e LGPD.", "href": "https://taismuller-arquiteta.netlify.app/" }
         ],
@@ -170,7 +170,7 @@
     {
       "title": "JB Imobiliária",
       "description": "Site para imobiliária do noroeste do RS: vitrine com filtros, página própria para cada imóvel e atendimento pelo WhatsApp. SEO local e dados estruturados.",
-      "live": "https://front-jb-imobiliaria.vercel.app",
+      "encerrado": "Site fora do ar desde 11/2026. Fica aqui como registro do trabalho.",
       "stack": ["Next.js", "TypeScript", "SEO"],
       "imagem": "jb-imobiliaria"
     },
@@ -197,7 +197,7 @@
     {
       "title": "Site Institucional + Blog — Veterinária Tamires",
       "description": "Site e blog para médica veterinária com foco em conteúdo educativo e autoridade. PHP, MySQL e hospedagem InfinityFree.",
-      "live": "https://veterinariatamires.lovestoblog.com",
+      "encerrado": "Site fora do ar: a hospedagem foi encerrada. Fica aqui como registro do trabalho.",
       "stack": ["PHP", "MySQL", "WordPress"],
       "imagem": "veterinaria-tamires"
     },

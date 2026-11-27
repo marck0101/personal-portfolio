@@ -41,7 +41,7 @@ function htmlProjetos() {
     .map(
       (p) =>
         `<li><strong>${esc(p.title)}</strong>: ${esc(p.description)} (${esc(p.stack.join(", "))})${
-          p.live ? ` <a href="${esc(p.live)}">acessar</a>` : ""
+          p.live ? ` <a href="${esc(p.live)}">acessar</a>` : p.encerrado ? ` (site fora do ar)` : ""
         }</li>`
     )
     .join("")}</ul>`;
@@ -266,7 +266,7 @@ ${p.sections.map((s) => `### ${s.title}\n\n${s.items.map((i) => `- ${i}`).join("
 
 ## Projetos (${SITE}/portfolio)
 
-${projetos.map((x) => `- ${x.live ? `[${x.title}](${x.live})` : x.title}: ${x.description} Stack: ${x.stack.join(", ")}.`).join("\n")}
+${projetos.map((x) => `- ${x.live ? `[${x.title}](${x.live})` : x.title}${x.encerrado ? " (site fora do ar)" : ""}: ${x.description} Stack: ${x.stack.join(", ")}.`).join("\n")}
 
 ## Sobre (${SITE}/about)
 

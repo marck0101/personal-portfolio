@@ -168,10 +168,10 @@ info = {
 |---|---|---|---|---|---|
 | 0 | Noite a Dois | https://noite-a-dois.marck0101.com.br/ | — | ✅ `noite-a-dois.png` | HTML/CSS/JS puros, Vercel (repo `marck0101/Noite-a-dois`) |
 | 1 | Taís Regina Müller — Arquiteta | https://taismuller-arquiteta.netlify.app | — | ✅ `taismuller-arquiteta.png` | HTML, Tailwind (compilado), Netlify, GTM (repo `marck0101/portfolio-arquitetura`) |
-| 1b | JB Imobiliária | https://front-jb-imobiliaria.vercel.app | — | ✅ `jb-imobiliaria.png` (print de 2026-11-17) | Next.js 16, TypeScript, SEO/GEO, Vercel (repo `marck0101/front-jb-imobiliaria`) |
+| 1b | JB Imobiliária | fora do ar desde 27/11/2026 (campo `encerrado`, sem link) | — | ✅ `jb-imobiliaria.png` (print de 2026-11-17) | Next.js 16, TypeScript, SEO/GEO, Vercel (repo `marck0101/front-jb-imobiliaria`) |
 | 2 | Dashboard de Marketing Integrado | — | — | ✅ `sistema-dash-gh.png` | React, Node.js, PostgreSQL |
 | 3 | Blog — Marcos Henrique | https://blog.marck0101.com.br | — | ✅ `blog-marcos.png` | Blog pessoal |
-| 4 | Site Institucional + Blog — Veterinária Tamires | https://veterinariatamires.lovestoblog.com | — | ✅ `veterinaria-tamires.png` | PHP, MySQL, WordPress |
+| 4 | Site Institucional + Blog — Veterinária Tamires | fora do ar desde 27/11/2026 (hospedagem encerrada; campo `encerrado`, sem link) | — | ✅ `veterinaria-tamires.png` | PHP, MySQL, WordPress |
 | 5 | Next Movies | https://filmes-lancamentos-atualizados.netlify.app | — | ✅ `next-movies.png` (print de 2026-11-16) | React, API do TMDB, Netlify (repo `marck0101/my-portfolio`) |
 | ~~6~~ | ~~Lista de Tarefas com Autenticação~~ (oculto em 2026-11-16, comentado no `Info.js` e no `<noscript>`, removido do JSON-LD) | https://atual-lista-tarefas.netlify.app | — | `ToDoList.png` | React, Firebase, Firestore |
 
@@ -320,3 +320,4 @@ Claude Code edita → `git add` + `git commit` + `git push origin main` → Netl
 | 2026-11-16 | Estilos de época iguais ao blog: menu Visual atual / Jornal / Terminal (`SkinToggle`, `utils/tema.js`, `styles/temas-epoca.scss`, fontes próprias); tokens `jornal`/`bbs` corrigidos com os valores reais do `raiz.css` (também em `blog/_marca`); "fig." removido das seções de texto do Sobre |
 | 2026-11-17 | Projeto JB Imobiliária adicionado (2º card, print do site novo, JSON-LD e noscript) |
 | 2026-11-17 | SEO/GEO para IAs: textos movidos para `src/info/conteudo.json`; `scripts/pos-build.js` gera HTML próprio por rota (title, canonical, OG, JSON-LD, `<noscript>` com o conteúdo), `sitemap.xml` com lastmod e `llms.txt`; `robots.txt` com bots de IA; `public/sitemap.xml` estático removido |
+| 2026-11-27 | JB Imobiliária e Veterinária Tamires saíram do ar: link "live" removido (card, destaque da home, JSON-LD, noscript e llms.txt); novo campo `encerrado` mostra "Site fora do ar" no card; imagem e descrição mantidas como registro |
