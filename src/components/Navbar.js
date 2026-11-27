@@ -37,6 +37,11 @@ export default function Navbar({ darkMode, handleClick, estilo, onEstilo }) {
               Blog
             </a>
           </li>
+          <li>
+            <a href={info.servicosUrl} className={`skin-link ${Style.link}`}>
+              Serviços
+            </a>
+          </li>
           <li className={Style.botoes}>
             <SkinToggle estilo={estilo} onChange={onEstilo} />
             {/* Jornal e Terminal têm a cor da época: o claro/escuro só aparece no visual atual */}

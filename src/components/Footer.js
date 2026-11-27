@@ -28,6 +28,9 @@ export default function Footer() {
             <a href={info.blogUrl}>Blog do {info.fullName}</a>
           </li>
           <li>
+            <a href={info.servicosUrl}>Serviços para negócios locais</a>
+          </li>
+          <li>
             <a href={info.githubUrl} target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
